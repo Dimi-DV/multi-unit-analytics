@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+# dbt
+target/
+dbt_packages/
+logs/
+# local
+.DS_Store
+*.local.*
+# local working docs, never commit (CLAUDE.md rule 9)
+CLAUDE.md
+docs/BUILD-SPEC.md
+docs/DRILL-PLAN.md
+# generated fact CSVs: regenerate with `python -m generator`, pinned by seeds/manifest.sha256
+data/generated/
