@@ -53,7 +53,7 @@ checksums drift (`python -m generator --verify`).
 ## The injected mess catalog
 
 Each item is a named, parameterized block in `generator/config.py` and maps to
-a documented cleaning step (the staging checklists in `sql/staging/`):
+a documented cleaning step (the staging models in `models/staging/`):
 
 1. **Dish-name drift**: a share of lines for 8 dishes use realistic POS
    variants (truncations, misspellings, casings); the converted store's

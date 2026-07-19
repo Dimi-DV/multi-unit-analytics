@@ -9,9 +9,10 @@
 > design** (real multi-location P&L data is proprietary everywhere), with realism anchored to cited
 > public sources. See [Data & methodology](#data--methodology).
 
-Status: dataset, schema, staging/marts layers, and the twelve analysis queries are built and run
-against the loaded database. The decision memo and the query EXPLAIN notes are in progress; nothing
-is claimed here before it exists in this repo.
+Status: dataset, dbt-managed staging/marts layers with 67 passing checks, the twelve analysis
+queries, and the text-to-SQL evaluation harness are built and run against the loaded database.
+The decision memo, query EXPLAIN notes, and the measured eval accuracy number are in progress;
+nothing is claimed here before it exists in this repo.
 
 ## The business question
 
@@ -31,8 +32,10 @@ naive growth reads lie: naive H1-2026 growth is +10.2% while true comp growth is
 | `generator/` | Seeded, byte-reproducible Python data generator: realistic distributions, a documented parameterized anomaly-injection pass, and a calibration checker that fails if the planted storyline drifts out of tolerance |
 | `seeds/` | Committed reference and dimension CSVs, 500-row fact samples, and the SHA-256 manifest that pins the regenerated facts |
 | `db/` | Raw-layer DDL: all-TEXT schema-on-read tables (typing is the first transformation) |
-| `sql/` | Typed staging views (three date formats, UTC window, dedup ranking) and constrained marts where the cleaning contract is applied exactly once; the fact PK doubles as the dedup regression test |
+| `models/` | dbt project (dbt-core 1.12, Postgres adapter): typed staging views (three date formats, UTC window, dedup ranking) and marts where the cleaning contract is applied exactly once; grain enforced by post-hook primary keys, so the fact build itself is the dedup regression test |
+| `tests/` + model YAML | 67 checks: uniqueness, referential relationships, accepted values, a net-sales-rule expression test, and singular tests for tie-out bounds, prime-cost plausibility, and alias-map totality |
 | `analysis/` | Twelve numbered business-question queries covering filter+HAVING, conditional joins, top-N per group, LAG/LEAD, gap-and-islands, dedup-keep-latest, and a recursive hierarchy rollup; every headline number above is transcribed from their output |
+| `eval/` | Text-to-SQL evaluation harness: 24-question ground-truth bank (answer key validated in CI), execution-match scoring, calibrated-judge protocol. Built and runnable; **no accuracy number is claimed until one is measured** |
 | `scripts/` | Loader (psycopg COPY), setup wrappers for PowerShell and make, determinism and content guards |
 | `docs/` | [Dataset design and provenance](docs/DATASET.md); the decision memo lands with Phase 1 |
 
@@ -52,8 +55,9 @@ git clone <this repo> && cd multi-unit-analytics
 
 That creates a venv with exact pins, regenerates the dataset (about 4 minutes), verifies checksums
 against the committed manifest, starts pinned Postgres 16 on port 5433, and loads about 5M rows.
-Then `make build` applies the staging and marts layers, and any file in `analysis/` runs with
-`psql -f`. `python -m generator --verify` re-checks byte-identity at any time.
+Then `pip install -r requirements-dbt.txt` and `make build` (or `dbt deps && dbt build` with
+`DBT_PROFILES_DIR=profiles`) builds every model and runs all 67 checks; any file in `analysis/`
+runs with `psql -f`. `python -m generator --verify` re-checks byte-identity at any time.
 
 ## Data & methodology
 
@@ -91,3 +95,10 @@ guardrails, and wrote the SQL layers to the specs and decisions recorded below.
 - One economic entity, two POS codes: the mid-2025 format conversion re-keys the store in the POS
   while finance systems never re-key; the bridge seed resolves it. This models the messiest real
   version of a location change without claiming dimensional-modeling-at-scale credentials.
+- Grain by post-hook primary key, referential integrity by dbt relationships tests: the PK is the
+  thing that must fail the build when dedup breaks, so it stays DDL; foreign keys as constraints
+  would force build-order coupling for what tests already prove.
+- dbt pinned to what is actually installable (dbt-core 1.12.0, dbt-postgres 1.11.0), not to a
+  headline version: this repo must run at clone time months from now.
+- Eval numbers ship with failure modes or not at all: the harness makes one attempt per question,
+  no retry loop, and the judge is quoted only next to its measured human-agreement rate.
