@@ -1,0 +1,13 @@
+-- 01 | True monthly net sales by location
+--
+-- Business question:
+-- What are real monthly net sales by location once voids, comps and refunds are
+-- handled correctly, and which location-months have a comp rate above 3%?
+--
+-- Tables: marts.fact_ticket_line, marts.dim_location, marts.dim_date
+-- Pattern: filter + aggregate + HAVING
+-- Expected output: ~270 location-month rows, plus a short exception list of high-comp months
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

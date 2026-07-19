@@ -1,0 +1,7 @@
+-- stg_pos__menu_items: staging view over raw.pos_menu_items (1:1, cast + normalize, no business logic)
+-- Cleaning checklist:
+--   - types; normalize category casing/whitespace; keep NULL costs NULL (imputation is an analysis decision)
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

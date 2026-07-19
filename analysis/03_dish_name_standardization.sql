@@ -1,0 +1,13 @@
+-- 03 | Dish-name drift standardization
+--
+-- Business question:
+-- What did each dish really sell once drifting names are mapped to canonical
+-- items, and what falls out unmapped? (The anti-join audit must return 0 rows.)
+--
+-- Tables: staging ticket lines, raw.ref_item_aliases, marts.dim_menu_item
+-- Pattern: conditional / multi-table joins with normalization
+-- Expected output: 46 canonical rows before/after, plus an unmapped-exceptions audit
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

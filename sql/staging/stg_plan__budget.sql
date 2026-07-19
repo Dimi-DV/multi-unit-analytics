@@ -1,0 +1,7 @@
+-- stg_plan__budget: staging view over raw.plan_budget (1:1, cast + normalize, no business logic)
+-- Cleaning checklist:
+--   - types
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

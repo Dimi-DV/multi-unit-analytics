@@ -1,0 +1,7 @@
+-- stg_pos__locations: staging view over raw.pos_locations (1:1, cast + normalize, no business logic)
+-- Cleaning checklist:
+--   - types; one row per location-code era
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

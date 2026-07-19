@@ -1,0 +1,14 @@
+-- 08 | Consecutive weeks above the prime-cost threshold
+--
+-- Business question:
+-- What is the longest consecutive-week streak each location spent above its
+-- prime-cost threshold, on a rolling 4-week basis? (Weekly purchase-based COGS
+-- is delivery-lumpy; the rolling window is the documented smoothing choice.)
+--
+-- Tables: weekly rollups of the 05 inputs
+-- Pattern: gap-and-islands
+-- Expected output: one row per streak plus best-streak-per-location; one location should be a multiple of the runner-up
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

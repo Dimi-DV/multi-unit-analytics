@@ -1,0 +1,14 @@
+-- 04 | Same-store sales: comp growth vs naive growth (headline query)
+--
+-- Business question:
+-- What is real comp growth vs naive growth, applying the 13-full-month
+-- eligibility rule and excluding the converted store during and 12 months
+-- after its format change?
+--
+-- Tables: marts.fact_ticket_line, marts.dim_location, marts.dim_location_history, marts.dim_date
+-- Pattern: LAG/LEAD period-over-period with eligibility flags
+-- Expected output: group-month comp vs naive series plus per-location detail
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

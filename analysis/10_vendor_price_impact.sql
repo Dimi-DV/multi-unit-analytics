@@ -1,0 +1,13 @@
+-- 10 | Vendor price steps and COGS impact
+--
+-- Business question:
+-- When did the beef vendor's prices step up, by how much, and what did each
+-- step do to COGS percentage by location given menu mix?
+--
+-- Tables: marts.fact_invoice_line, marts.dim_vendor, marts.dim_menu_item
+-- Pattern: LAG on unit price for step detection
+-- Expected output: vendor-item price series, a two-row step summary, and a per-location impact table
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

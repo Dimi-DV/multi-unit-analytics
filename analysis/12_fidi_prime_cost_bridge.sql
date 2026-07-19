@@ -1,0 +1,14 @@
+-- 12 | Decision memo assembly: the prime-cost bridge
+--
+-- Business question:
+-- Decompose the Financial District trailing-12 prime-cost miss into its labor
+-- and COGS legs and annualize the dollar impact. Feeds docs/decision-memo.md;
+-- every number in the memo is transcribed from this query's measured output.
+--
+-- Tables: outputs of 04, 05, 08, 10
+-- Pattern: multi-CTE composition (no new pattern)
+-- Expected output: a small bridge table: baseline, leg contributions, total, annualized dollars
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

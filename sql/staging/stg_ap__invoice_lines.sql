@@ -1,0 +1,7 @@
+-- stg_ap__invoice_lines: staging view over raw.ap_invoice_lines (1:1, cast + normalize, no business logic)
+-- Cleaning checklist:
+--   - types; normalize uom casing; back-calculate missing unit_cost from ext_cost/qty where safe
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

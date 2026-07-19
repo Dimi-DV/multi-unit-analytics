@@ -1,0 +1,13 @@
+-- 02 | Duplicate (re-fired) ticket cleanup and impact
+--
+-- Business question:
+-- How much did duplicate re-fired tickets inflate reported sales, and where?
+-- Duplicates share the full business key and differ only in closed_at.
+--
+-- Tables: raw.pos_ticket_lines (via staging)
+-- Pattern: dedup-keep-latest: ROW_NUMBER over the business key ordered by closed_at
+-- Expected output: summary by affected location-month; the November 2025 window should surface
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

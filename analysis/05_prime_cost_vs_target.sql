@@ -1,0 +1,13 @@
+-- 05 | Prime cost vs monthly budget target
+--
+-- Business question:
+-- Which locations missed their monthly prime-cost target by more than 2 points,
+-- and when? Handle locations/months with no budget row.
+--
+-- Tables: marts.fact_ticket_line, marts.fact_invoice_line, marts.fact_labor_day, marts.fact_budget_month
+-- Pattern: LEFT JOIN + COALESCE, filter + aggregate + HAVING
+-- Expected output: ~270 location-month rows plus a miss list; one location should dominate from mid-2025
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

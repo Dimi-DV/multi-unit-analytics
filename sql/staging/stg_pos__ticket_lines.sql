@@ -1,0 +1,10 @@
+-- stg_pos__ticket_lines: staging view over raw.pos_ticket_lines (1:1, cast + normalize, no business logic)
+-- Cleaning checklist:
+--   - cast text to typed columns; parse the three business_date formats
+--   - normalize the UTC-suffixed closed_at window back to local time
+--   - dedup-keep-latest: ROW_NUMBER over (location_code, business_date, ticket_number, line_number) ordered by closed_at DESC
+--   - flag but keep voids/comps/refunds (net-sales rule is applied in the mart)
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

@@ -1,0 +1,13 @@
+-- 11 | Each location vs the group benchmark
+--
+-- Business question:
+-- How does each location-month compare to the group benchmark, and does the
+-- converted store read correctly through its two location-code eras?
+--
+-- Tables: marts.fact_ticket_line rollups, marts.dim_location, marts.dim_location_history
+-- Pattern: self-join / hierarchy (location vs group, borough rollup available)
+-- Expected output: location-month rows with benchmark deltas
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

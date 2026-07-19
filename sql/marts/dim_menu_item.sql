@@ -1,0 +1,8 @@
+-- marts.dim_menu_item
+-- Grain: one row per canonical menu item (46); NULL costs preserved
+-- Owner-written DDL + INSERT/SELECT from staging views. Types, keys and
+-- CHECK constraints are part of the interview surface and are hand-written.
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

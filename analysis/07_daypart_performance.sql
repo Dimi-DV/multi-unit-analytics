@@ -1,0 +1,13 @@
+-- 07 | Daypart performance and staffing questions
+--
+-- Business question:
+-- Which dayparts carry each location, which underperform enough to question
+-- hours or staffing, and what happened to the converted store's dinner daypart?
+--
+-- Tables: marts.fact_ticket_line, marts.fact_labor_day, marts.dim_date
+-- Pattern: filter + aggregate + HAVING over a daypart grid
+-- Expected output: location x daypart grid plus monthly trend for flagged cells
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

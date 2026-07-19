@@ -1,0 +1,14 @@
+-- 06 | Menu-mix engineering: stars, plowhorses, puzzles, dogs
+--
+-- Business question:
+-- Which dishes are stars/plowhorses/puzzles/dogs within category (popularity vs
+-- contribution margin vs category median), and what are the top 3 sellers per
+-- location per quarter? Compare the pre/post beef-price eras.
+--
+-- Tables: marts.fact_ticket_line, marts.dim_menu_item, marts.dim_date
+-- Pattern: top-N per group (ROW_NUMBER/RANK) + window aggregates
+-- Expected output: 46-row quadrant table per era + top-3 rows per location-quarter
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.

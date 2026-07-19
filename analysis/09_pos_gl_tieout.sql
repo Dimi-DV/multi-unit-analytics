@@ -1,0 +1,14 @@
+-- 09 | POS to GL daily tie-out
+--
+-- Business question:
+-- Do POS net sales tie to the ledger daily under a stated cutoff rule for
+-- late-posted rows? Outside the injected variance windows the tie-out is exact
+-- to the penny; inside them, characterize the variance.
+--
+-- Tables: cleaned POS daily net, marts.fact_gl_day, marts.dim_date
+-- Pattern: FULL OUTER JOIN + COALESCE, cutoff logic
+-- Expected output: exceptions-only output: variance days bucketed by cause
+--
+-- Status: STUB. The query body here is written by hand by the repo owner
+-- (ownership rule in the README's Decisions section). Scaffolding only
+-- carries the spec; committing generated SQL here would defeat the point.
