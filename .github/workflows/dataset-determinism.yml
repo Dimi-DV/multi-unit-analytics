@@ -1,0 +1,53 @@
+# Dataset determinism: regenerate everything on Linux and prove the output is
+# byte-identical to what the Windows dev machine committed. This is the only
+# real test of the LF/formatting discipline, and it enforces the project rule
+# that committed seeds regenerate byte-identical.
+#
+# Runner and actions are pinned (runner by version, actions by commit SHA):
+# this workflow's job is reproducibility, so it does not get to drift either.
+name: dataset determinism
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  determinism:
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONHASHSEED: "0"
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version-file: .python-version
+
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Regenerate dataset
+        run: python -m generator
+
+      - name: Verify fact checksums against committed manifest
+        run: python -m generator --verify
+
+      - name: Committed seeds must regenerate byte-identical
+        # git status --porcelain (not git diff): a renamed or newly added seed
+        # file must fail this check too, and diff cannot see untracked files.
+        run: |
+          if [ -n "$(git status --porcelain seeds/)" ]; then
+            echo "seeds/ changed after regeneration:"
+            git status --porcelain seeds/
+            git diff seeds/ | head -100
+            exit 1
+          fi
+
+      - name: Determinism guard (no wall clock, no ambient randomness)
+        run: python scripts/check_no_wallclock.py
+
+      - name: Content guard (banned tokens, em-dashes)
+        run: python scripts/check_banned_strings.py
+
+      - name: Calibration bands
+        run: python -m generator.calibrate
