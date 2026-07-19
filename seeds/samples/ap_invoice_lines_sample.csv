@@ -1,0 +1,501 @@
+invoice_number,line_number,location_code,vendor_name,invoice_date,posted_date,item_desc,qty,uom,unit_cost,ext_cost
+DBP0000001,1,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-02,Applewood Bacon,102.9,LB,4.60,473.34
+DBP0000001,2,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-02,Beef Short Rib,42.4,LB,6.90,292.56
+DBP0000001,3,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-02,Pork Belly,58.3,lb,4.10,239.03
+DBP0000001,4,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-02,Brisket,57.4,LB,5.60,321.44
+DBP0000001,5,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-02,Hanger Steak,28.2,LB,9.20,259.44
+DBP0000001,6,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-02,Ground Beef 80/20,88.4,LB,3.85,340.34
+DBP0000002,1,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Applewood Bacon,66.0,LB,4.60,303.60
+DBP0000002,2,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Ground Beef 80/20,61.5,LB,3.85,236.78
+DBP0000002,3,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Hanger Steak,43.1,LB,9.20,396.52
+DBP0000002,4,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Beef Short Rib,62.4,LB,6.90,430.56
+DBP0000002,5,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Brisket,66.8,LB,5.60,374.08
+DBP0000002,6,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Pork Belly,97.1,LB,4.10,398.11
+DBP0000003,1,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-04,Chicken Breast,65.6,LB,3.30,216.48
+DBP0000003,2,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-04,Party Wings,85.1,LB,3.15,268.07
+DBP0000003,3,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-04,Half Chickens,85.1,EA,3.90,331.89
+DBP0000003,4,CW-WV,Duncliff Beef & Provisions,2024-01-02,2024-01-04,Ground Turkey,95.5,LB,3.45,329.48
+DBP0000004,1,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Chicken Breast,72.7,LB,3.30,239.91
+DBP0000004,2,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Half Chickens,68.9,EA,3.90,268.71
+DBP0000004,3,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Party Wings,80.3,LB,3.15,252.95
+DBP0000004,4,CW-WV,Duncliff Beef & Provisions,2024-01-05,2024-01-06,Ground Turkey,112.2,LB,3.45,387.09
+WFC0000001,1,CW-WV,Windrow Fish Co.,2024-01-02,2024-01-03,Salmon Fillet,19.9,LB,8.39,166.96
+WFC0000001,2,CW-WV,Windrow Fish Co.,2024-01-02,2024-01-03,Cod Loin,32.4,LB,6.69,216.76
+WFC0000001,3,CW-WV,Windrow Fish Co.,2024-01-02,2024-01-03,Smoked Trout,22.8,LB,10.84,247.15
+WFC0000002,1,CW-WV,Windrow Fish Co.,2024-01-04,2024-01-04,Salmon Fillet,39.4,LB,8.39,330.57
+WFC0000002,2,CW-WV,Windrow Fish Co.,2024-01-04,2024-01-04,Cod Loin,25.8,LB,6.69,172.60
+WFC0000002,3,CW-WV,Windrow Fish Co.,2024-01-04,2024-01-04,Smoked Trout,20.6,LB,10.84,223.30
+HCP0000001,1,CW-WV,Hudson Crate Produce,2024-01-01,2024-01-01,Potatoes 50lb,13.3,BG,27.23,362.16
+HCP0000001,2,CW-WV,Hudson Crate Produce,2024-01-01,2024-01-01,Lacinato Kale,16.0,CS,24.21,387.36
+HCP0000001,3,CW-WV,Hudson Crate Produce,2024-01-01,2024-01-01,Brussels Sprouts,118.6,LB,2.42,287.01
+HCP0000001,4,CW-WV,Hudson Crate Produce,2024-01-01,2024-01-01,Yellow Onions 50lb,24.6,BG,19.16,471.34
+HCP0000001,5,CW-WV,Hudson Crate Produce,2024-01-01,2024-01-01,Tomatoes 25lb,8.3,CS,29.25,242.78
+HCP0000002,1,CW-WV,Hudson Crate Produce,2024-01-03,2024-01-03,Lacinato Kale,11.0,CS,24.21,266.31
+HCP0000002,2,CW-WV,Hudson Crate Produce,2024-01-03,2024-01-03,Yellow Onions 50lb,12.5,BG,19.16,239.50
+HCP0000002,3,CW-WV,Hudson Crate Produce,2024-01-03,2024-01-03,Potatoes 50lb,8.9,BG,27.23,242.35
+HCP0000002,4,CW-WV,Hudson Crate Produce,2024-01-03,2024-01-03,Tomatoes 25lb,6.4,CS,29.25,187.20
+HCP0000002,5,CW-WV,Hudson Crate Produce,2024-01-03,2024-01-03,Herb Mix,7.5,CS,26.23,196.73
+HCP0000002,6,CW-WV,Hudson Crate Produce,2024-01-03,2024-01-03,Brussels Sprouts,92.8,LB,2.42,224.58
+HCP0000002,7,CW-WV,Hudson Crate Produce,2024-01-03,2024-01-03,Mixed Greens,15.3,CS,21.18,324.05
+HCP0000003,1,CW-WV,Hudson Crate Produce,2024-01-06,2024-01-08,Tomatoes 25lb,22.7,CS,29.25,663.98
+HCP0000003,2,CW-WV,Hudson Crate Produce,2024-01-06,2024-01-08,Avocados 48ct,10.8,CS,58.50,631.80
+HCP0000003,3,CW-WV,Hudson Crate Produce,2024-01-06,2024-01-08,Mixed Greens,19.1,CS,21.18,404.54
+KDE0000001,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-01,2024-01-02,Whole Milk,67.2,GAL,3.90,262.08
+KDE0000001,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-01,2024-01-02,Butter Solids 36lb,3.4,CS,118.00,401.20
+KDE0000001,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-01,2024-01-02,Heavy Cream,142.7,QT,3.20,456.64
+KDE0000002,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-04,2024-01-04,Butter Solids 36lb,2.8,CS,118.00,330.40
+KDE0000002,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-04,2024-01-04,Whole Milk,94.4,GAL,3.90,368.16
+KDE0000002,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-04,2024-01-04,Soft-Serve Base,5.5,CS,46.00,253.00
+KDE0000002,4,CW-WV,Kettleboro Dairy & Eggs,2024-01-04,2024-01-04,Heavy Cream,100.6,QT,3.20,321.92
+GHD0000001,1,CW-WV,Granary Hill Dry Goods,2024-01-03,2024-01-04,Baking Chocolate,10.2,CS,63.00,642.60
+GHD0000001,2,CW-WV,Granary Hill Dry Goods,2024-01-03,2024-01-04,Carolina Rice 50lb,37.1,BG,28.00,1038.80
+GHD0000001,3,CW-WV,Granary Hill Dry Goods,2024-01-03,2024-01-04,Maple Syrup,11.8,GAL,52.00,613.60
+GHD0000001,4,CW-WV,Granary Hill Dry Goods,2024-01-03,2024-01-04,Potato Buns 96ct,33.0,CS,31.00,1023.00
+GHD0000001,5,CW-WV,Granary Hill Dry Goods,2024-01-03,2024-01-04,Spice Program,23.9,CS,44.00,1051.60
+QCR0000001,1,CW-WV,Quillbrook Coffee Roasters,2024-01-02,2024-01-04,House Blend Beans,16.4,LB,9.75,159.90
+QCR0000001,2,CW-WV,Quillbrook Coffee Roasters,2024-01-02,2024-01-04,Tea Program,3.8,CS,34.00,129.20
+QCR0000001,3,CW-WV,Quillbrook Coffee Roasters,2024-01-02,2024-01-04,Cold Brew Concentrate,3.8,GAL,21.00,79.80
+MBS0000001,1,CW-WV,Meridian Beverage Supply,2024-01-01,2024-01-03,Lemonade Base,1.1,CS,27.00,29.70
+MBS0000001,2,CW-WV,Meridian Beverage Supply,2024-01-01,2024-01-03,Sparkling Water 24ct,1.6,case,22.00,35.20
+MBS0000001,3,CW-WV,Meridian Beverage Supply,2024-01-01,2024-01-03,House Syrups,0.8,case,31.00,24.80
+HWS0000001,1,CW-WV,Harborline Wine & Spirits,2024-01-04,2024-01-06,Bar Mixers,9.3,CS,25.00,232.50
+HWS0000001,2,CW-WV,Harborline Wine & Spirits,2024-01-04,2024-01-06,Local Lager 1/2 BBL,1.5,KEG,195.00,292.50
+HWS0000001,3,CW-WV,Harborline Wine & Spirits,2024-01-04,2024-01-06,Gin 6ct,1.7,CS,210.00,357.00
+CPP0000001,1,CW-WV,Cleanline Paper & Packaging,2024-01-03,2024-01-05,Carry Bags,2.8,CS,33.00,92.40
+CPP0000001,2,CW-WV,Cleanline Paper & Packaging,2024-01-03,2024-01-05,Hot/Cold Cups,1.7,CS,51.00,86.70
+CPP0000001,3,CW-WV,Cleanline Paper & Packaging,2024-01-03,2024-01-05,Napkins & Rollups,2.5,CS,29.00,72.50
+DBP0000005,1,CW-WV,Duncliff Beef & Provisions,2024-01-09,2024-01-11,Hanger Steak,60.1,LB,9.20,552.92
+DBP0000005,2,CW-WV,Duncliff Beef & Provisions,2024-01-09,2024-01-11,Ground Beef 80/20,68.5,LB,3.85,263.73
+DBP0000005,3,CW-WV,Duncliff Beef & Provisions,2024-01-09,2024-01-11,Pork Belly,76.1,LB,4.10,312.01
+DBP0000005,4,CW-WV,Duncliff Beef & Provisions,2024-01-09,2024-01-11,Beef Short Rib,67.1,LB,6.90,462.99
+DBP0000005,5,CW-WV,Duncliff Beef & Provisions,2024-01-09,2024-01-11,Applewood Bacon,87.8,LB,4.60,403.88
+DBP0000006,1,CW-WV,Duncliff Beef & Provisions,2024-01-12,2024-01-14,Ground Beef 80/20,155.6,LB,3.85,599.06
+DBP0000006,2,CW-WV,Duncliff Beef & Provisions,2024-01-12,2024-01-14,Pork Belly,142.5,LB,4.10,584.25
+DBP0000006,3,CW-WV,Duncliff Beef & Provisions,2024-01-12,2024-01-14,Applewood Bacon,142.0,LB,4.60,653.20
+DBP0000006,4,CW-WV,Duncliff Beef & Provisions,2024-01-12,2024-01-14,Brisket,87.1,LB,5.60,487.76
+DBP0000007,1,CW-WV,Duncliff Beef & Provisions,2024-01-09,2024-01-10,Chicken Breast,145.4,LB,3.30,479.82
+DBP0000007,2,CW-WV,Duncliff Beef & Provisions,2024-01-09,2024-01-10,Half Chickens,116.1,EA,3.90,452.79
+DBP0000007,3,CW-WV,Duncliff Beef & Provisions,2024-01-09,2024-01-10,Ground Turkey,95.3,LB,3.45,328.79
+DBP0000008,1,CW-WV,Duncliff Beef & Provisions,2024-01-12,2024-01-14,Chicken Breast,108.3,LB,3.30,357.39
+DBP0000008,2,CW-WV,Duncliff Beef & Provisions,2024-01-12,2024-01-14,Party Wings,127.3,LB,3.15,401.00
+DBP0000008,3,CW-WV,Duncliff Beef & Provisions,2024-01-12,2024-01-14,Half Chickens,86.7,EA,3.90,338.13
+DBP0000008,4,CW-WV,Duncliff Beef & Provisions,2024-01-12,2024-01-14,Ground Turkey,67.9,lb,3.45,234.26
+WFC0000003,1,CW-WV,Windrow Fish Co.,2024-01-09,2024-01-11,Cod Loin,55.5,LB,6.61,366.86
+WFC0000003,2,CW-WV,Windrow Fish Co.,2024-01-09,2024-01-11,Salmon Fillet,28.8,LB,8.29,238.75
+WFC0000003,3,CW-WV,Windrow Fish Co.,2024-01-09,2024-01-11,Smoked Trout,21.7,LB,10.71,232.41
+WFC0000004,1,CW-WV,Windrow Fish Co.,2024-01-11,2024-01-12,Salmon Fillet,37.2,LB,8.29,308.39
+WFC0000004,2,CW-WV,Windrow Fish Co.,2024-01-11,2024-01-12,Smoked Trout,28.1,LB,10.71,300.95
+WFC0000004,3,CW-WV,Windrow Fish Co.,2024-01-11,2024-01-12,Cod Loin,31.4,LB,6.61,207.55
+HCP0000004,1,CW-WV,Hudson Crate Produce,2024-01-08,2024-01-08,Tomatoes 25lb,14.1,CS,31.16,439.36
+HCP0000004,2,CW-WV,Hudson Crate Produce,2024-01-08,2024-01-08,Yellow Onions 50lb,23.4,BG,20.42,477.83
+HCP0000004,3,CW-WV,Hudson Crate Produce,2024-01-08,2024-01-08,Mixed Greens,10.7,CS,22.57,241.50
+HCP0000004,4,CW-WV,Hudson Crate Produce,2024-01-08,2024-01-08,Herb Mix,9.9,CS,27.94,276.61
+HCP0000004,5,CW-WV,Hudson Crate Produce,2024-01-08,2024-01-08,Brussels Sprouts,119.6,LB,2.58,308.57
+HCP0000005,1,CW-WV,Hudson Crate Produce,2024-01-10,2024-01-11,Tomatoes 25lb,20.0,CS,31.16,623.20
+HCP0000005,2,CW-WV,Hudson Crate Produce,2024-01-10,2024-01-11,Mixed Greens,28.2,CS,22.57,636.47
+HCP0000005,3,CW-WV,Hudson Crate Produce,2024-01-10,2024-01-11,Herb Mix,25.7,CS,27.94,718.06
+HCP0000006,1,CW-WV,Hudson Crate Produce,2024-01-13,2024-01-13,Potatoes 50lb,15.0,BG,29.01,435.15
+HCP0000006,2,CW-WV,Hudson Crate Produce,2024-01-13,2024-01-13,Avocados 48ct,10.0,CS,62.32,623.20
+HCP0000006,3,CW-WV,Hudson Crate Produce,2024-01-13,2024-01-13,Lacinato Kale,30.5,CS,25.79,786.60
+KDE0000003,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-08,2024-01-08,Eggs 15dz Loose,6.6,CS,42.00,277.20
+KDE0000003,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-08,2024-01-08,Cheddar Block,87.2,LB,3.10,270.32
+KDE0000003,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-08,2024-01-08,Heavy Cream,46.9,QT,3.20,150.08
+KDE0000003,4,CW-WV,Kettleboro Dairy & Eggs,2024-01-08,2024-01-08,Butter Solids 36lb,1.2,CS,118.00,141.60
+KDE0000003,5,CW-WV,Kettleboro Dairy & Eggs,2024-01-08,2024-01-08,Whole Milk,49.2,GAL,3.90,191.88
+KDE0000003,6,CW-WV,Kettleboro Dairy & Eggs,2024-01-08,2024-01-08,Soft-Serve Base,3.6,CS,46.00,165.60
+KDE0000004,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-11,2024-01-12,Soft-Serve Base,6.3,CS,46.00,289.80
+KDE0000004,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-11,2024-01-12,Butter Solids 36lb,3.1,CS,118.00,365.80
+KDE0000004,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-11,2024-01-12,Cheddar Block,93.2,LB,3.10,288.92
+KDE0000004,4,CW-WV,Kettleboro Dairy & Eggs,2024-01-11,2024-01-12,Whole Milk,48.1,GAL,3.90,187.59
+KDE0000004,5,CW-WV,Kettleboro Dairy & Eggs,2024-01-11,2024-01-12,Heavy Cream,64.7,QT,3.20,207.04
+GHD0000002,1,CW-WV,Granary Hill Dry Goods,2024-01-10,2024-01-11,Cane Sugar 50lb,27.1,BG,24.00,650.40
+GHD0000002,2,CW-WV,Granary Hill Dry Goods,2024-01-10,2024-01-11,Baking Chocolate,11.4,CS,63.00,718.20
+GHD0000002,3,CW-WV,Granary Hill Dry Goods,2024-01-10,2024-01-11,AP Flour 50lb,30.8,BG,21.00,646.80
+GHD0000002,4,CW-WV,Granary Hill Dry Goods,2024-01-10,2024-01-11,Maple Syrup,14.3,GAL,52.00,743.60
+GHD0000002,5,CW-WV,Granary Hill Dry Goods,2024-01-10,2024-01-11,Potato Buns 96ct,21.4,CS,31.00,663.40
+GHD0000002,6,CW-WV,Granary Hill Dry Goods,2024-01-10,2024-01-11,Carolina Rice 50lb,16.5,BG,28.00,462.00
+GHD0000002,7,CW-WV,Granary Hill Dry Goods,2024-01-10,2024-01-11,Fry Oil 35lb JIB,19.4,ea,38.00,737.20
+QCR0000002,1,CW-WV,Quillbrook Coffee Roasters,2024-01-09,2024-01-10,House Blend Beans,19.0,LB,9.75,185.25
+QCR0000002,2,CW-WV,Quillbrook Coffee Roasters,2024-01-09,2024-01-10,Cold Brew Concentrate,5.6,GAL,21.00,117.60
+QCR0000002,3,CW-WV,Quillbrook Coffee Roasters,2024-01-09,2024-01-10,Tea Program,2.7,CS,34.00,91.80
+MBS0000002,1,CW-WV,Meridian Beverage Supply,2024-01-08,2024-01-09,Lemonade Base,0.8,CS,27.00,21.60
+MBS0000002,2,CW-WV,Meridian Beverage Supply,2024-01-08,2024-01-09,House Syrups,0.7,CS,31.00,21.70
+MBS0000002,3,CW-WV,Meridian Beverage Supply,2024-01-08,2024-01-09,Sparkling Water 24ct,1.9,CS,22.00,41.80
+HWS0000002,1,CW-WV,Harborline Wine & Spirits,2024-01-11,2024-01-11,Bar Mixers,8.2,CS,25.00,205.00
+HWS0000002,2,CW-WV,Harborline Wine & Spirits,2024-01-11,2024-01-11,House Wine 12ct,3.2,CS,96.00,307.20
+HWS0000002,3,CW-WV,Harborline Wine & Spirits,2024-01-11,2024-01-11,Gin 6ct,1.8,CS,210.00,378.00
+CPP0000002,1,CW-WV,Cleanline Paper & Packaging,2024-01-10,2024-01-12,Hot/Cold Cups,2.0,CS,51.00,102.00
+CPP0000002,2,CW-WV,Cleanline Paper & Packaging,2024-01-10,2024-01-12,To-Go Containers,1.0,CS,64.00,64.00
+CPP0000002,3,CW-WV,Cleanline Paper & Packaging,2024-01-10,2024-01-12,Carry Bags,3.1,CS,33.00,102.30
+DBP0000009,1,CW-WV,Duncliff Beef & Provisions,2024-01-16,2024-01-18,Applewood Bacon,161.5,LB,4.60,742.90
+DBP0000009,2,CW-WV,Duncliff Beef & Provisions,2024-01-16,2024-01-18,Brisket,151.4,LB,5.60,847.84
+DBP0000009,3,CW-WV,Duncliff Beef & Provisions,2024-01-16,2024-01-18,Ground Beef 80/20,243.3,LB,3.85,936.71
+DBP0000010,1,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-20,Beef Short Rib,72.7,LB,6.90,501.63
+DBP0000010,2,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-20,Ground Beef 80/20,109.5,LB,3.85,421.58
+DBP0000010,3,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-20,Applewood Bacon,122.7,LB,4.60,564.42
+DBP0000010,4,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-20,Hanger Steak,47.5,LB,9.20,437.00
+DBP0000010,5,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-20,Pork Belly,67.2,LB,4.10,275.52
+DBP0000011,1,CW-WV,Duncliff Beef & Provisions,2024-01-16,2024-01-18,Party Wings,119.8,LB,3.15,377.37
+DBP0000011,2,CW-WV,Duncliff Beef & Provisions,2024-01-16,2024-01-18,Ground Turkey,129.9,LB,3.45,448.16
+DBP0000011,3,CW-WV,Duncliff Beef & Provisions,2024-01-16,2024-01-18,Chicken Breast,66.0,LB,3.30,217.80
+DBP0000011,4,CW-WV,Duncliff Beef & Provisions,2024-01-16,2024-01-18,Half Chickens,79.5,EA,3.90,310.05
+DBP0000012,1,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-19,Party Wings,69.2,LB,3.15,217.98
+DBP0000012,2,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-19,Chicken Breast,109.4,LB,3.30,361.02
+DBP0000012,3,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-19,Half Chickens,112.2,EA,3.90,437.58
+DBP0000012,4,CW-WV,Duncliff Beef & Provisions,2024-01-19,2024-01-19,Ground Turkey,67.9,LB,3.45,234.26
+WFC0000005,1,CW-WV,Windrow Fish Co.,2024-01-16,2024-01-16,Cod Loin,36.1,lb,7.31,263.89
+WFC0000005,2,CW-WV,Windrow Fish Co.,2024-01-16,2024-01-16,Salmon Fillet,28.8,lb,9.16,263.81
+WFC0000005,3,CW-WV,Windrow Fish Co.,2024-01-16,2024-01-16,Smoked Trout,37.3,LB,11.84,441.63
+WFC0000006,1,CW-WV,Windrow Fish Co.,2024-01-18,2024-01-18,Cod Loin,53.1,LB,7.31,388.16
+WFC0000006,2,CW-WV,Windrow Fish Co.,2024-01-18,2024-01-18,Smoked Trout,16.7,LB,11.84,197.73
+WFC0000006,3,CW-WV,Windrow Fish Co.,2024-01-18,2024-01-18,Salmon Fillet,27.6,LB,9.16,252.82
+HCP0000007,1,CW-WV,Hudson Crate Produce,2024-01-15,2024-01-16,Potatoes 50lb,18.5,bag,24.88,460.28
+HCP0000007,2,CW-WV,Hudson Crate Produce,2024-01-15,2024-01-16,Avocados 48ct,10.6,Case,53.44,566.46
+HCP0000007,3,CW-WV,Hudson Crate Produce,2024-01-15,2024-01-16,Lacinato Kale,19.2,CS,22.11,424.51
+HCP0000007,4,CW-WV,Hudson Crate Produce,2024-01-15,2024-01-16,Tomatoes 25lb,20.0,CS,26.72,534.40
+HCP0000008,1,CW-WV,Hudson Crate Produce,2024-01-17,2024-01-18,Lacinato Kale,24.3,CS,22.11,537.27
+HCP0000008,2,CW-WV,Hudson Crate Produce,2024-01-17,2024-01-18,Lemons 115ct,11.6,CS,30.40,352.64
+HCP0000008,3,CW-WV,Hudson Crate Produce,2024-01-17,2024-01-18,Potatoes 50lb,22.7,BG,24.88,564.78
+HCP0000008,4,CW-WV,Hudson Crate Produce,2024-01-17,2024-01-18,Mixed Greens,17.8,CS,19.35,344.43
+HCP0000009,1,CW-WV,Hudson Crate Produce,2024-01-20,2024-01-20,Avocados 48ct,6.0,CS,53.44,320.64
+HCP0000009,2,CW-WV,Hudson Crate Produce,2024-01-20,2024-01-20,Mixed Greens,19.1,CS,19.35,369.59
+HCP0000009,3,CW-WV,Hudson Crate Produce,2024-01-20,2024-01-20,Lacinato Kale,19.6,CS,22.11,433.36
+HCP0000009,4,CW-WV,Hudson Crate Produce,2024-01-20,2024-01-20,Lemons 115ct,14.2,CS,30.40,431.68
+HCP0000009,5,CW-WV,Hudson Crate Produce,2024-01-20,2024-01-20,Herb Mix,23.8,CS,23.95,570.01
+KDE0000005,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-15,2024-01-17,Cheddar Block,146.2,LB,3.10,453.22
+KDE0000005,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-15,2024-01-17,Eggs 15dz Loose,9.9,Case,42.00,415.80
+KDE0000005,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-15,2024-01-17,Whole Milk,53.4,GAL,3.90,208.26
+KDE0000005,4,CW-WV,Kettleboro Dairy & Eggs,2024-01-15,2024-01-17,Butter Solids 36lb,1.9,CS,118.00,224.20
+KDE0000006,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-18,2024-01-19,Butter Solids 36lb,4.7,CS,118.00,554.60
+KDE0000006,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-18,2024-01-19,Eggs 15dz Loose,8.9,CS,42.00,373.80
+KDE0000006,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-18,2024-01-19,Heavy Cream,168.8,QT,3.20,540.16
+GHD0000003,1,CW-WV,Granary Hill Dry Goods,2024-01-17,2024-01-17,Baking Chocolate,25.2,CS,63.00,1587.60
+GHD0000003,2,CW-WV,Granary Hill Dry Goods,2024-01-17,2024-01-17,Fry Oil 35lb JIB,51.6,EA,38.00,1960.80
+GHD0000003,3,CW-WV,Granary Hill Dry Goods,2024-01-17,2024-01-17,Potato Buns 96ct,44.9,CS,31.00,1391.90
+QCR0000003,1,CW-WV,Quillbrook Coffee Roasters,2024-01-16,2024-01-17,House Blend Beans,16.5,LB,9.75,160.88
+QCR0000003,2,CW-WV,Quillbrook Coffee Roasters,2024-01-16,2024-01-17,Cold Brew Concentrate,7.1,GAL,21.00,149.10
+QCR0000003,3,CW-WV,Quillbrook Coffee Roasters,2024-01-16,2024-01-17,Tea Program,3.6,CS,34.00,122.40
+MBS0000003,1,CW-WV,Meridian Beverage Supply,2024-01-15,2024-01-16,Lemonade Base,1.2,CS,27.00,32.40
+MBS0000003,2,CW-WV,Meridian Beverage Supply,2024-01-15,2024-01-16,Sparkling Water 24ct,1.5,CS,22.00,33.00
+MBS0000003,3,CW-WV,Meridian Beverage Supply,2024-01-15,2024-01-16,House Syrups,1.0,CS,31.00,31.00
+HWS0000003,1,CW-WV,Harborline Wine & Spirits,2024-01-18,2024-01-20,House Wine 12ct,4.4,CS,96.00,422.40
+HWS0000003,2,CW-WV,Harborline Wine & Spirits,2024-01-18,2024-01-20,Local Lager 1/2 BBL,1.0,KEG,195.00,195.00
+HWS0000003,3,CW-WV,Harborline Wine & Spirits,2024-01-18,2024-01-20,Gin 6ct,1.9,CS,210.00,399.00
+CPP0000003,1,CW-WV,Cleanline Paper & Packaging,2024-01-17,2024-01-19,Hot/Cold Cups,1.4,CS,51.00,71.40
+CPP0000003,2,CW-WV,Cleanline Paper & Packaging,2024-01-17,2024-01-19,To-Go Containers,1.4,CS,64.00,89.60
+CPP0000003,3,CW-WV,Cleanline Paper & Packaging,2024-01-17,2024-01-19,Carry Bags,3.6,CS,33.00,118.80
+DBP0000013,1,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-25,Hanger Steak,59.8,LB,9.20,550.16
+DBP0000013,2,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-25,Applewood Bacon,109.4,LB,4.60,503.24
+DBP0000013,3,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-25,Pork Belly,164.6,LB,4.10,674.86
+DBP0000013,4,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-25,Beef Short Rib,62.5,LB,6.90,431.25
+DBP0000013,5,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-25,Ground Beef 80/20,157.7,LB,3.85,607.15
+DBP0000014,1,CW-WV,Duncliff Beef & Provisions,2024-01-26,2024-01-27,Beef Short Rib,109.3,LB,6.90,754.17
+DBP0000014,2,CW-WV,Duncliff Beef & Provisions,2024-01-26,2024-01-27,Applewood Bacon,140.8,LB,4.60,647.68
+DBP0000014,3,CW-WV,Duncliff Beef & Provisions,2024-01-26,2024-01-27,Hanger Steak,91.4,LB,9.20,840.88
+DBP0000015,1,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-23,Party Wings,66.4,LB,3.15,209.16
+DBP0000015,2,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-23,Chicken Breast,87.9,lb,3.30,290.07
+DBP0000015,3,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-23,Half Chickens,118.4,EA,3.90,461.76
+DBP0000015,4,CW-WV,Duncliff Beef & Provisions,2024-01-23,2024-01-23,Ground Turkey,97.9,lb,3.45,337.76
+DBP0000016,1,CW-WV,Duncliff Beef & Provisions,2024-01-26,2024-01-28,Ground Turkey,137.8,LB,3.45,475.41
+DBP0000016,2,CW-WV,Duncliff Beef & Provisions,2024-01-26,2024-01-28,Half Chickens,96.1,ea,3.90,374.79
+DBP0000016,3,CW-WV,Duncliff Beef & Provisions,2024-01-26,2024-01-28,Party Wings,76.5,LB,3.15,240.98
+DBP0000016,4,CW-WV,Duncliff Beef & Provisions,2024-01-26,2024-01-28,Chicken Breast,73.6,LB,3.30,242.88
+WFC0000007,1,CW-WV,Windrow Fish Co.,2024-01-23,2024-01-23,Smoked Trout,26.1,LB,11.85,309.29
+WFC0000007,2,CW-WV,Windrow Fish Co.,2024-01-23,2024-01-23,Cod Loin,28.9,LB,7.32,211.55
+WFC0000007,3,CW-WV,Windrow Fish Co.,2024-01-23,2024-01-23,Salmon Fillet,30.4,LB,9.17,278.77
+WFC0000008,1,CW-WV,Windrow Fish Co.,2024-01-25,2024-01-26,Salmon Fillet,29.5,LB,9.17,270.52
+WFC0000008,2,CW-WV,Windrow Fish Co.,2024-01-25,2024-01-26,Cod Loin,21.3,LB,7.32,155.92
+WFC0000008,3,CW-WV,Windrow Fish Co.,2024-01-25,2024-01-26,Smoked Trout,27.5,LB,11.85,325.88
+HCP0000010,1,CW-WV,Hudson Crate Produce,2024-01-22,2024-01-24,Yellow Onions 50lb,14.2,BG,18.96,269.23
+HCP0000010,2,CW-WV,Hudson Crate Produce,2024-01-22,2024-01-24,Tomatoes 25lb,9.1,CS,28.93,263.26
+HCP0000010,3,CW-WV,Hudson Crate Produce,2024-01-22,2024-01-24,Potatoes 50lb,11.3,bag,26.94,304.42
+HCP0000010,4,CW-WV,Hudson Crate Produce,2024-01-22,2024-01-24,Herb Mix,11.5,CS,25.94,298.31
+HCP0000010,5,CW-WV,Hudson Crate Produce,2024-01-22,2024-01-24,Lemons 115ct,9.2,CS,32.92,302.86
+HCP0000010,6,CW-WV,Hudson Crate Produce,2024-01-22,2024-01-24,Brussels Sprouts,193.4,LB,2.39,462.23
+HCP0000011,1,CW-WV,Hudson Crate Produce,2024-01-24,2024-01-25,Yellow Onions 50lb,10.8,BG,18.96,204.77
+HCP0000011,2,CW-WV,Hudson Crate Produce,2024-01-24,2024-01-25,Tomatoes 25lb,12.6,CS,28.93,364.52
+HCP0000011,3,CW-WV,Hudson Crate Produce,2024-01-24,2024-01-25,Potatoes 50lb,7.9,bag,26.94,212.83
+HCP0000011,4,CW-WV,Hudson Crate Produce,2024-01-24,2024-01-25,Herb Mix,10.3,CS,25.94,267.18
+HCP0000011,5,CW-WV,Hudson Crate Produce,2024-01-24,2024-01-25,Mixed Greens,15.1,CS,20.95,316.35
+HCP0000011,6,CW-WV,Hudson Crate Produce,2024-01-24,2024-01-25,Brussels Sprouts,118.9,LB,2.39,284.17
+HCP0000011,7,CW-WV,Hudson Crate Produce,2024-01-24,2024-01-25,Lemons 115ct,9.9,CS,32.92,325.91
+HCP0000012,1,CW-WV,Hudson Crate Produce,2024-01-27,2024-01-28,Lacinato Kale,13.7,CS,23.94,327.98
+HCP0000012,2,CW-WV,Hudson Crate Produce,2024-01-27,2024-01-28,Potatoes 50lb,9.7,BG,26.94,261.32
+HCP0000012,3,CW-WV,Hudson Crate Produce,2024-01-27,2024-01-28,Herb Mix,6.3,CS,25.94,163.42
+HCP0000012,4,CW-WV,Hudson Crate Produce,2024-01-27,2024-01-28,Brussels Sprouts,120.2,LB,2.39,287.28
+HCP0000012,5,CW-WV,Hudson Crate Produce,2024-01-27,2024-01-28,Tomatoes 25lb,11.3,CS,28.93,326.91
+HCP0000012,6,CW-WV,Hudson Crate Produce,2024-01-27,2024-01-28,Yellow Onions 50lb,15.9,bag,18.96,301.46
+HCP0000012,7,CW-WV,Hudson Crate Produce,2024-01-27,2024-01-28,Avocados 48ct,5.6,CS,57.87,324.07
+KDE0000007,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-22,2024-01-23,Cheddar Block,138.1,LB,3.10,428.11
+KDE0000007,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-22,2024-01-23,Butter Solids 36lb,4.8,CS,118.00,566.40
+KDE0000007,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-22,2024-01-23,Heavy Cream,127.9,QT,3.20,409.28
+KDE0000008,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-25,2024-01-26,Cheddar Block,108.5,LB,3.10,336.35
+KDE0000008,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-25,2024-01-26,Butter Solids 36lb,3.3,CS,118.00,389.40
+KDE0000008,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-25,2024-01-26,Soft-Serve Base,6.6,CS,46.00,303.60
+KDE0000008,4,CW-WV,Kettleboro Dairy & Eggs,2024-01-25,2024-01-26,Heavy Cream,109.4,QT,3.20,350.08
+GHD0000004,1,CW-WV,Granary Hill Dry Goods,2024-01-24,2024-01-25,Cane Sugar 50lb,37.2,BG,24.00,892.80
+GHD0000004,2,CW-WV,Granary Hill Dry Goods,2024-01-24,2024-01-25,Fry Oil 35lb JIB,12.1,EA,38.00,459.80
+GHD0000004,3,CW-WV,Granary Hill Dry Goods,2024-01-24,2024-01-25,Spice Program,10.4,CS,44.00,457.60
+GHD0000004,4,CW-WV,Granary Hill Dry Goods,2024-01-24,2024-01-25,Potato Buns 96ct,27.3,CS,31.00,846.30
+GHD0000004,5,CW-WV,Granary Hill Dry Goods,2024-01-24,2024-01-25,AP Flour 50lb,36.8,BG,21.00,772.80
+GHD0000004,6,CW-WV,Granary Hill Dry Goods,2024-01-24,2024-01-25,Maple Syrup,15.1,GAL,52.00,785.20
+GHD0000004,7,CW-WV,Granary Hill Dry Goods,2024-01-24,2024-01-25,Baking Chocolate,12.6,CS,63.00,793.80
+QCR0000004,1,CW-WV,Quillbrook Coffee Roasters,2024-01-23,2024-01-25,Cold Brew Concentrate,8.6,GAL,21.00,180.60
+QCR0000004,2,CW-WV,Quillbrook Coffee Roasters,2024-01-23,2024-01-25,House Blend Beans,13.1,lb,9.75,127.73
+QCR0000004,3,CW-WV,Quillbrook Coffee Roasters,2024-01-23,2024-01-25,Tea Program,4.3,CS,34.00,146.20
+MBS0000004,1,CW-WV,Meridian Beverage Supply,2024-01-22,2024-01-24,Lemonade Base,1.1,CS,27.00,29.70
+MBS0000004,2,CW-WV,Meridian Beverage Supply,2024-01-22,2024-01-24,House Syrups,1.5,CS,31.00,46.50
+MBS0000004,3,CW-WV,Meridian Beverage Supply,2024-01-22,2024-01-24,Sparkling Water 24ct,0.9,CS,22.00,19.80
+HWS0000004,1,CW-WV,Harborline Wine & Spirits,2024-01-25,2024-01-25,Bar Mixers,9.2,CS,25.00,230.00
+HWS0000004,2,CW-WV,Harborline Wine & Spirits,2024-01-25,2024-01-25,Gin 6ct,1.2,CS,210.00,252.00
+HWS0000004,3,CW-WV,Harborline Wine & Spirits,2024-01-25,2024-01-25,House Wine 12ct,3.0,CS,96.00,288.00
+HWS0000004,4,CW-WV,Harborline Wine & Spirits,2024-01-25,2024-01-25,Local Lager 1/2 BBL,1.8,KEG,195.00,351.00
+CPP0000004,1,CW-WV,Cleanline Paper & Packaging,2024-01-24,2024-01-26,Carry Bags,2.9,CS,33.00,95.70
+CPP0000004,2,CW-WV,Cleanline Paper & Packaging,2024-01-24,2024-01-26,Hot/Cold Cups,1.7,case,51.00,86.70
+CPP0000004,3,CW-WV,Cleanline Paper & Packaging,2024-01-24,2024-01-26,To-Go Containers,1.6,CS,64.00,102.40
+DBP0000017,1,CW-WV,Duncliff Beef & Provisions,2024-01-30,2024-01-30,Brisket,100.6,LB,5.60,563.36
+DBP0000017,2,CW-WV,Duncliff Beef & Provisions,2024-01-30,2024-01-30,Beef Short Rib,133.6,LB,6.90,921.84
+DBP0000017,3,CW-WV,Duncliff Beef & Provisions,2024-01-30,2024-01-30,Pork Belly,156.6,LB,4.10,642.06
+DBP0000018,1,CW-WV,Duncliff Beef & Provisions,2024-02-02,2024-02-03,Beef Short Rib,131.1,LB,6.90,904.59
+DBP0000018,2,CW-WV,Duncliff Beef & Provisions,2024-02-02,2024-02-03,Applewood Bacon,221.2,LB,4.60,1017.52
+DBP0000018,3,CW-WV,Duncliff Beef & Provisions,2024-02-02,2024-02-03,Ground Beef 80/20,194.2,LB,3.85,747.67
+DBP0000019,1,CW-WV,Duncliff Beef & Provisions,2024-01-30,2024-02-01,Chicken Breast,89.5,LB,3.30,295.35
+DBP0000019,2,CW-WV,Duncliff Beef & Provisions,2024-01-30,2024-02-01,Half Chickens,110.6,EA,3.90,431.34
+DBP0000019,3,CW-WV,Duncliff Beef & Provisions,2024-01-30,2024-02-01,Party Wings,90.1,LB,3.15,283.82
+DBP0000019,4,CW-WV,Duncliff Beef & Provisions,2024-01-30,2024-02-01,Ground Turkey,72.9,LB,3.45,251.51
+DBP0000020,1,CW-WV,Duncliff Beef & Provisions,2024-02-02,2024-02-02,Half Chickens,94.7,EA,3.90,369.33
+DBP0000020,2,CW-WV,Duncliff Beef & Provisions,2024-02-02,2024-02-02,Chicken Breast,75.1,LB,3.30,247.83
+DBP0000020,3,CW-WV,Duncliff Beef & Provisions,2024-02-02,2024-02-02,Ground Turkey,133.0,LB,3.45,458.85
+DBP0000020,4,CW-WV,Duncliff Beef & Provisions,2024-02-02,2024-02-02,Party Wings,86.4,LB,3.15,272.16
+WFC0000009,1,CW-WV,Windrow Fish Co.,2024-01-30,2024-01-31,Salmon Fillet,37.7,LB,8.36,315.17
+WFC0000009,2,CW-WV,Windrow Fish Co.,2024-01-30,2024-01-31,Cod Loin,57.9,LB,6.67,386.19
+WFC0000009,3,CW-WV,Windrow Fish Co.,2024-01-30,2024-01-31,Smoked Trout,21.9,LB,10.81,236.74
+WFC0000010,1,CW-WV,Windrow Fish Co.,2024-02-01,2024-02-02,Salmon Fillet,43.1,LB,8.36,360.32
+WFC0000010,2,CW-WV,Windrow Fish Co.,2024-02-01,2024-02-02,Smoked Trout,27.8,LB,10.81,300.52
+WFC0000010,3,CW-WV,Windrow Fish Co.,2024-02-01,2024-02-02,Cod Loin,38.9,LB,6.67,259.46
+HCP0000013,1,CW-WV,Hudson Crate Produce,2024-01-29,2024-01-31,Brussels Sprouts,190.5,LB,2.54,483.87
+HCP0000013,2,CW-WV,Hudson Crate Produce,2024-01-29,2024-01-31,Tomatoes 25lb,20.0,CS,30.70,614.00
+HCP0000013,3,CW-WV,Hudson Crate Produce,2024-01-29,2024-01-31,Potatoes 50lb,14.9,BG,28.58,425.84
+HCP0000013,4,CW-WV,Hudson Crate Produce,2024-01-29,2024-01-31,Lacinato Kale,16.4,CS,25.41,416.72
+HCP0000014,1,CW-WV,Hudson Crate Produce,2024-01-31,2024-02-01,Potatoes 50lb,13.5,BG,28.58,385.83
+HCP0000014,2,CW-WV,Hudson Crate Produce,2024-01-31,2024-02-01,Tomatoes 25lb,10.7,CS,30.70,328.49
+HCP0000014,3,CW-WV,Hudson Crate Produce,2024-01-31,2024-02-01,Lemons 115ct,10.1,CS,34.93,352.79
+HCP0000014,4,CW-WV,Hudson Crate Produce,2024-01-31,2024-02-01,Mixed Greens,13.5,CS,22.23,300.11
+HCP0000014,5,CW-WV,Hudson Crate Produce,2024-01-31,2024-02-01,Avocados 48ct,6.0,CS,61.40,368.40
+HCP0000015,1,CW-WV,Hudson Crate Produce,2024-02-03,2024-02-04,Herb Mix,10.4,CS,27.52,286.21
+HCP0000015,2,CW-WV,Hudson Crate Produce,2024-02-03,2024-02-04,Tomatoes 25lb,7.8,CS,30.70,239.46
+HCP0000015,3,CW-WV,Hudson Crate Produce,2024-02-03,2024-02-04,Mixed Greens,17.2,CS,22.23,382.36
+HCP0000015,4,CW-WV,Hudson Crate Produce,2024-02-03,2024-02-04,Brussels Sprouts,147.5,LB,2.54,374.65
+HCP0000015,5,CW-WV,Hudson Crate Produce,2024-02-03,2024-02-04,Potatoes 50lb,10.5,BG,28.58,300.09
+HCP0000015,6,CW-WV,Hudson Crate Produce,2024-02-03,2024-02-04,Yellow Onions 50lb,18.2,BG,20.11,366.00
+KDE0000009,1,CW-WV,Kettleboro Dairy & Eggs,2024-01-29,2024-01-29,Soft-Serve Base,8.7,CS,46.00,400.20
+KDE0000009,2,CW-WV,Kettleboro Dairy & Eggs,2024-01-29,2024-01-29,Butter Solids 36lb,3.1,CS,118.00,365.80
+KDE0000009,3,CW-WV,Kettleboro Dairy & Eggs,2024-01-29,2024-01-29,Whole Milk,143.0,GAL,3.90,557.70
+KDE0000010,1,CW-WV,Kettleboro Dairy & Eggs,2024-02-01,2024-02-02,Soft-Serve Base,6.1,CS,46.00,280.60
+KDE0000010,2,CW-WV,Kettleboro Dairy & Eggs,2024-02-01,2024-02-02,Whole Milk,111.2,GAL,3.90,433.68
+KDE0000010,3,CW-WV,Kettleboro Dairy & Eggs,2024-02-01,2024-02-02,Heavy Cream,95.5,QT,3.20,305.60
+KDE0000010,4,CW-WV,Kettleboro Dairy & Eggs,2024-02-01,2024-02-02,Butter Solids 36lb,2.2,CS,118.00,259.60
+GHD0000005,1,CW-WV,Granary Hill Dry Goods,2024-01-31,2024-01-31,Spice Program,33.6,CS,44.00,1478.40
+GHD0000005,2,CW-WV,Granary Hill Dry Goods,2024-01-31,2024-01-31,Potato Buns 96ct,35.6,CS,31.00,1103.60
+GHD0000005,3,CW-WV,Granary Hill Dry Goods,2024-01-31,2024-01-31,Fry Oil 35lb JIB,31.0,EA,38.00,1178.00
+GHD0000005,4,CW-WV,Granary Hill Dry Goods,2024-01-31,2024-01-31,AP Flour 50lb,51.4,BG,21.00,1079.40
+QCR0000005,1,CW-WV,Quillbrook Coffee Roasters,2024-01-30,2024-02-01,House Blend Beans,15.3,LB,9.75,149.18
+QCR0000005,2,CW-WV,Quillbrook Coffee Roasters,2024-01-30,2024-02-01,Cold Brew Concentrate,5.6,GAL,21.00,117.60
+QCR0000005,3,CW-WV,Quillbrook Coffee Roasters,2024-01-30,2024-02-01,Tea Program,4.6,CS,34.00,156.40
+MBS0000005,1,CW-WV,Meridian Beverage Supply,2024-01-29,2024-01-29,Lemonade Base,1.1,CS,27.00,29.70
+MBS0000005,2,CW-WV,Meridian Beverage Supply,2024-01-29,2024-01-29,House Syrups,1.0,CS,31.00,31.00
+MBS0000005,3,CW-WV,Meridian Beverage Supply,2024-01-29,2024-01-29,Sparkling Water 24ct,1.3,CS,22.00,28.60
+HWS0000005,1,CW-WV,Harborline Wine & Spirits,2024-02-01,2024-02-02,House Wine 12ct,4.2,CS,96.00,403.20
+HWS0000005,2,CW-WV,Harborline Wine & Spirits,2024-02-01,2024-02-02,Gin 6ct,1.7,CS,210.00,357.00
+HWS0000005,3,CW-WV,Harborline Wine & Spirits,2024-02-01,2024-02-02,Bar Mixers,9.0,CS,25.00,225.00
+CPP0000005,1,CW-WV,Cleanline Paper & Packaging,2024-01-31,2024-02-02,To-Go Containers,1.5,CS,64.00,96.00
+CPP0000005,2,CW-WV,Cleanline Paper & Packaging,2024-01-31,2024-02-02,Carry Bags,2.3,CS,33.00,75.90
+CPP0000005,3,CW-WV,Cleanline Paper & Packaging,2024-01-31,2024-02-02,Hot/Cold Cups,2.3,CS,51.00,117.30
+DBP0000021,1,CW-WV,Duncliff Beef & Provisions,2024-02-06,2024-02-08,Ground Beef 80/20,161.4,LB,3.85,621.39
+DBP0000021,2,CW-WV,Duncliff Beef & Provisions,2024-02-06,2024-02-08,Hanger Steak,43.3,LB,9.20,398.36
+DBP0000021,3,CW-WV,Duncliff Beef & Provisions,2024-02-06,2024-02-08,Pork Belly,172.1,LB,4.10,705.61
+DBP0000021,4,CW-WV,Duncliff Beef & Provisions,2024-02-06,2024-02-08,Beef Short Rib,103.3,LB,6.90,712.77
+DBP0000022,1,CW-WV,Duncliff Beef & Provisions,2024-02-09,2024-02-09,Beef Short Rib,50.2,LB,6.90,346.38
+DBP0000022,2,CW-WV,Duncliff Beef & Provisions,2024-02-09,2024-02-09,Ground Beef 80/20,148.4,LB,3.85,571.34
+DBP0000022,3,CW-WV,Duncliff Beef & Provisions,2024-02-09,2024-02-09,Applewood Bacon,149.2,lb,4.60,686.32
+DBP0000022,4,CW-WV,Duncliff Beef & Provisions,2024-02-09,2024-02-09,Hanger Steak,83.6,LB,9.20,769.12
+DBP0000023,1,CW-WV,Duncliff Beef & Provisions,2024-02-06,2024-02-06,Half Chickens,89.4,EA,3.90,348.66
+DBP0000023,2,CW-WV,Duncliff Beef & Provisions,2024-02-06,2024-02-06,Ground Turkey,105.5,LB,3.45,363.98
+DBP0000023,3,CW-WV,Duncliff Beef & Provisions,2024-02-06,2024-02-06,Chicken Breast,155.0,LB,3.30,511.50
+DBP0000024,1,CW-WV,Duncliff Beef & Provisions,2024-02-09,2024-02-11,Half Chickens,76.9,EA,3.90,299.91
+DBP0000024,2,CW-WV,Duncliff Beef & Provisions,2024-02-09,2024-02-11,Chicken Breast,94.1,LB,3.30,310.53
+DBP0000024,3,CW-WV,Duncliff Beef & Provisions,2024-02-09,2024-02-11,Party Wings,110.4,LB,3.15,347.76
+DBP0000024,4,CW-WV,Duncliff Beef & Provisions,2024-02-09,2024-02-11,Ground Turkey,65.7,LB,3.45,226.67
+WFC0000011,1,CW-WV,Windrow Fish Co.,2024-02-06,2024-02-06,Salmon Fillet,33.0,LB,8.48,279.84
+WFC0000011,2,CW-WV,Windrow Fish Co.,2024-02-06,2024-02-06,Smoked Trout,16.2,LB,10.96,177.55
+WFC0000011,3,CW-WV,Windrow Fish Co.,2024-02-06,2024-02-06,Cod Loin,39.5,LB,6.77,267.42
+WFC0000012,1,CW-WV,Windrow Fish Co.,2024-02-08,2024-02-10,Cod Loin,44.9,LB,6.77,303.97
+WFC0000012,2,CW-WV,Windrow Fish Co.,2024-02-08,2024-02-10,Salmon Fillet,28.4,LB,8.48,240.83
+WFC0000012,3,CW-WV,Windrow Fish Co.,2024-02-08,2024-02-10,Smoked Trout,22.5,LB,10.96,246.60
+HCP0000016,1,CW-WV,Hudson Crate Produce,2024-02-05,2024-02-05,Brussels Sprouts,287.0,LB,2.24,642.88
+HCP0000016,2,CW-WV,Hudson Crate Produce,2024-02-05,2024-02-05,Lemons 115ct,16.1,Case,30.73,494.75
+HCP0000016,3,CW-WV,Hudson Crate Produce,2024-02-05,2024-02-05,Potatoes 50lb,17.0,bag,25.15,427.55
+HCP0000017,1,CW-WV,Hudson Crate Produce,2024-02-07,2024-02-08,Lacinato Kale,15.6,CS,22.35,348.66
+HCP0000017,2,CW-WV,Hudson Crate Produce,2024-02-07,2024-02-08,Brussels Sprouts,168.7,LB,2.24,377.89
+HCP0000017,3,CW-WV,Hudson Crate Produce,2024-02-07,2024-02-08,Lemons 115ct,19.6,CS,30.73,602.31
+HCP0000017,4,CW-WV,Hudson Crate Produce,2024-02-07,2024-02-08,Avocados 48ct,7.2,CS,54.02,388.94
+HCP0000017,5,CW-WV,Hudson Crate Produce,2024-02-07,2024-02-08,Tomatoes 25lb,13.1,CS,27.01,353.83
+HCP0000018,1,CW-WV,Hudson Crate Produce,2024-02-10,2024-02-10,Tomatoes 25lb,13.1,Case,27.01,353.83
+HCP0000018,2,CW-WV,Hudson Crate Produce,2024-02-10,2024-02-10,Lemons 115ct,9.4,CS,30.73,288.86
+HCP0000018,3,CW-WV,Hudson Crate Produce,2024-02-10,2024-02-10,Lacinato Kale,13.4,CS,22.35,299.49
+HCP0000018,4,CW-WV,Hudson Crate Produce,2024-02-10,2024-02-10,Potatoes 50lb,15.0,BG,25.15,377.25
+HCP0000018,5,CW-WV,Hudson Crate Produce,2024-02-10,2024-02-10,Brussels Sprouts,147.2,LB,2.24,329.73
+HCP0000018,6,CW-WV,Hudson Crate Produce,2024-02-10,2024-02-10,Avocados 48ct,7.6,CS,54.02,410.55
+KDE0000011,1,CW-WV,Kettleboro Dairy & Eggs,2024-02-05,2024-02-05,Butter Solids 36lb,3.6,CS,118.00,424.80
+KDE0000011,2,CW-WV,Kettleboro Dairy & Eggs,2024-02-05,2024-02-05,Whole Milk,164.0,GAL,3.90,639.60
+KDE0000011,3,CW-WV,Kettleboro Dairy & Eggs,2024-02-05,2024-02-05,Eggs 15dz Loose,8.5,case,42.00,357.00
+KDE0000012,1,CW-WV,Kettleboro Dairy & Eggs,2024-02-08,2024-02-08,Butter Solids 36lb,1.8,CS,118.00,212.40
+KDE0000012,2,CW-WV,Kettleboro Dairy & Eggs,2024-02-08,2024-02-08,Eggs 15dz Loose,6.7,CS,42.00,281.40
+KDE0000012,3,CW-WV,Kettleboro Dairy & Eggs,2024-02-08,2024-02-08,Soft-Serve Base,5.2,CS,46.00,239.20
+KDE0000012,4,CW-WV,Kettleboro Dairy & Eggs,2024-02-08,2024-02-08,Whole Milk,32.3,GAL,3.90,125.97
+KDE0000012,5,CW-WV,Kettleboro Dairy & Eggs,2024-02-08,2024-02-08,Heavy Cream,44.9,QT,3.20,143.68
+KDE0000012,6,CW-WV,Kettleboro Dairy & Eggs,2024-02-08,2024-02-08,Cheddar Block,46.5,lb,3.10,144.15
+GHD0000006,1,CW-WV,Granary Hill Dry Goods,2024-02-07,2024-02-09,Maple Syrup,23.5,GAL,52.00,1222.00
+GHD0000006,2,CW-WV,Granary Hill Dry Goods,2024-02-07,2024-02-09,Cane Sugar 50lb,36.5,BG,24.00,876.00
+GHD0000006,3,CW-WV,Granary Hill Dry Goods,2024-02-07,2024-02-09,Spice Program,19.3,CS,44.00,849.20
+GHD0000006,4,CW-WV,Granary Hill Dry Goods,2024-02-07,2024-02-09,Potato Buns 96ct,19.8,CS,31.00,613.80
+GHD0000006,5,CW-WV,Granary Hill Dry Goods,2024-02-07,2024-02-09,Fry Oil 35lb JIB,29.9,EA,38.00,1136.20
+QCR0000006,1,CW-WV,Quillbrook Coffee Roasters,2024-02-06,2024-02-08,Cold Brew Concentrate,8.5,GAL,21.00,178.50
+QCR0000006,2,CW-WV,Quillbrook Coffee Roasters,2024-02-06,2024-02-08,House Blend Beans,12.9,LB,9.75,125.78
+QCR0000006,3,CW-WV,Quillbrook Coffee Roasters,2024-02-06,2024-02-08,Tea Program,3.0,CS,34.00,102.00
+MBS0000006,1,CW-WV,Meridian Beverage Supply,2024-02-05,2024-02-05,House Syrups,1.2,CS,31.00,37.20
+MBS0000006,2,CW-WV,Meridian Beverage Supply,2024-02-05,2024-02-05,Lemonade Base,1.3,CS,27.00,35.10
+MBS0000006,3,CW-WV,Meridian Beverage Supply,2024-02-05,2024-02-05,Sparkling Water 24ct,1.1,CS,22.00,24.20
+HWS0000006,1,CW-WV,Harborline Wine & Spirits,2024-02-08,2024-02-08,House Wine 12ct,4.8,CS,96.00,460.80
+HWS0000006,2,CW-WV,Harborline Wine & Spirits,2024-02-08,2024-02-08,Gin 6ct,1.5,CS,210.00,315.00
+HWS0000006,3,CW-WV,Harborline Wine & Spirits,2024-02-08,2024-02-08,Local Lager 1/2 BBL,1.4,KEG,195.00,273.00
+CPP0000006,1,CW-WV,Cleanline Paper & Packaging,2024-02-07,2024-02-08,Carry Bags,2.9,CS,33.00,95.70
+CPP0000006,2,CW-WV,Cleanline Paper & Packaging,2024-02-07,2024-02-08,Hot/Cold Cups,1.7,CS,51.00,86.70
+CPP0000006,3,CW-WV,Cleanline Paper & Packaging,2024-02-07,2024-02-08,To-Go Containers,1.6,CS,64.00,102.40
+DBP0000025,1,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Beef Short Rib,66.3,LB,6.90,457.47
+DBP0000025,2,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Brisket,66.5,LB,5.60,372.40
+DBP0000025,3,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Applewood Bacon,60.6,LB,4.60,278.76
+DBP0000025,4,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Pork Belly,104.2,LB,4.10,427.22
+DBP0000025,5,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Ground Beef 80/20,102.2,LB,3.85,393.47
+DBP0000025,6,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Hanger Steak,62.2,LB,9.20,572.24
+DBP0000026,1,CW-WV,Duncliff Beef & Provisions,2024-02-16,2024-02-17,Ground Beef 80/20,113.5,LB,3.85,436.98
+DBP0000026,2,CW-WV,Duncliff Beef & Provisions,2024-02-16,2024-02-17,Applewood Bacon,107.7,LB,4.60,495.42
+DBP0000026,3,CW-WV,Duncliff Beef & Provisions,2024-02-16,2024-02-17,Pork Belly,119.6,LB,4.10,490.36
+DBP0000026,4,CW-WV,Duncliff Beef & Provisions,2024-02-16,2024-02-17,Hanger Steak,53.0,LB,9.20,487.60
+DBP0000026,5,CW-WV,Duncliff Beef & Provisions,2024-02-16,2024-02-17,Beef Short Rib,88.8,LB,6.90,612.72
+DBP0000027,1,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Chicken Breast,108.0,LB,3.30,356.40
+DBP0000027,2,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Half Chickens,58.7,EA,3.90,228.93
+DBP0000027,3,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Party Wings,135.7,LB,3.15,427.46
+DBP0000027,4,CW-WV,Duncliff Beef & Provisions,2024-02-13,2024-02-15,Ground Turkey,60.8,lb,3.45,209.76
+DBP0000028,1,CW-WV,Duncliff Beef & Provisions,2024-02-16,2024-02-16,Party Wings,96.7,lb,3.15,304.61
+DBP0000028,2,CW-WV,Duncliff Beef & Provisions,2024-02-16,2024-02-16,Half Chickens,143.1,EA,3.90,558.09
+DBP0000028,3,CW-WV,Duncliff Beef & Provisions,2024-02-16,2024-02-16,Chicken Breast,133.1,LB,3.30,439.23
+WFC0000013,1,CW-WV,Windrow Fish Co.,2024-02-13,2024-02-14,Salmon Fillet,23.2,LB,9.19,213.21
+WFC0000013,2,CW-WV,Windrow Fish Co.,2024-02-13,2024-02-14,Cod Loin,28.4,LB,7.33,208.17
+WFC0000013,3,CW-WV,Windrow Fish Co.,2024-02-13,2024-02-14,Smoked Trout,24.3,LB,11.88,288.68
+WFC0000014,1,CW-WV,Windrow Fish Co.,2024-02-15,2024-02-17,Cod Loin,28.6,LB,7.33,209.64
+WFC0000014,2,CW-WV,Windrow Fish Co.,2024-02-15,2024-02-17,Salmon Fillet,35.0,LB,9.19,321.65
+WFC0000014,3,CW-WV,Windrow Fish Co.,2024-02-15,2024-02-17,Smoked Trout,24.4,LB,11.88,289.87
+HCP0000019,1,CW-WV,Hudson Crate Produce,2024-02-12,2024-02-12,Tomatoes 25lb,15.9,CS,28.08,446.47
+HCP0000019,2,CW-WV,Hudson Crate Produce,2024-02-12,2024-02-12,Herb Mix,11.1,CS,25.18,279.50
+HCP0000019,3,CW-WV,Hudson Crate Produce,2024-02-12,2024-02-12,Potatoes 50lb,15.4,BG,26.15,402.71
+HCP0000019,4,CW-WV,Hudson Crate Produce,2024-02-12,2024-02-12,Lemons 115ct,10.6,CS,31.96,338.78
+HCP0000019,5,CW-WV,Hudson Crate Produce,2024-02-12,2024-02-12,Avocados 48ct,6.2,CS,56.17,348.25
+HCP0000020,1,CW-WV,Hudson Crate Produce,2024-02-14,2024-02-15,Brussels Sprouts,248.8,LB,2.32,577.22
+HCP0000020,2,CW-WV,Hudson Crate Produce,2024-02-14,2024-02-15,Avocados 48ct,8.3,CS,56.17,466.21
+HCP0000020,3,CW-WV,Hudson Crate Produce,2024-02-14,2024-02-15,Potatoes 50lb,30.4,BG,26.15,794.96
+HCP0000021,1,CW-WV,Hudson Crate Produce,2024-02-17,2024-02-19,Tomatoes 25lb,10.4,CS,28.08,292.03
+HCP0000021,2,CW-WV,Hudson Crate Produce,2024-02-17,2024-02-19,Mixed Greens,15.1,CS,20.34,307.13
+HCP0000021,3,CW-WV,Hudson Crate Produce,2024-02-17,2024-02-19,Potatoes 50lb,10.1,BG,26.15,264.12
+HCP0000021,4,CW-WV,Hudson Crate Produce,2024-02-17,2024-02-19,Lacinato Kale,9.9,CS,23.24,230.08
+HCP0000021,5,CW-WV,Hudson Crate Produce,2024-02-17,2024-02-19,Brussels Sprouts,200.8,LB,2.32,465.86
+HCP0000021,6,CW-WV,Hudson Crate Produce,2024-02-17,2024-02-19,Yellow Onions 50lb,13.0,BG,18.40,239.20
+HCP0000021,7,CW-WV,Hudson Crate Produce,2024-02-17,2024-02-19,Herb Mix,17.0,Case,25.18,428.06
+KDE0000013,1,CW-WV,Kettleboro Dairy & Eggs,2024-02-12,2024-02-13,Butter Solids 36lb,3.4,CS,118.00,401.20
+KDE0000013,2,CW-WV,Kettleboro Dairy & Eggs,2024-02-12,2024-02-13,Eggs 15dz Loose,8.5,CS,42.00,357.00
+KDE0000013,3,CW-WV,Kettleboro Dairy & Eggs,2024-02-12,2024-02-13,Whole Milk,104.1,GAL,3.90,405.99
+KDE0000013,4,CW-WV,Kettleboro Dairy & Eggs,2024-02-12,2024-02-13,Soft-Serve Base,6.5,case,46.00,299.00
+KDE0000014,1,CW-WV,Kettleboro Dairy & Eggs,2024-02-15,2024-02-17,Whole Milk,53.2,GAL,3.90,207.48
+KDE0000014,2,CW-WV,Kettleboro Dairy & Eggs,2024-02-15,2024-02-17,Eggs 15dz Loose,7.2,CS,42.00,302.40
+KDE0000014,3,CW-WV,Kettleboro Dairy & Eggs,2024-02-15,2024-02-17,Soft-Serve Base,6.0,CS,46.00,276.00
+KDE0000014,4,CW-WV,Kettleboro Dairy & Eggs,2024-02-15,2024-02-17,Heavy Cream,75.8,QT,3.20,242.56
+KDE0000014,5,CW-WV,Kettleboro Dairy & Eggs,2024-02-15,2024-02-17,Cheddar Block,55.9,LB,3.10,173.29
+GHD0000007,1,CW-WV,Granary Hill Dry Goods,2024-02-14,2024-02-16,AP Flour 50lb,44.0,BG,21.00,924.00
+GHD0000007,2,CW-WV,Granary Hill Dry Goods,2024-02-14,2024-02-16,Fry Oil 35lb JIB,16.6,EA,38.00,630.80
+GHD0000007,3,CW-WV,Granary Hill Dry Goods,2024-02-14,2024-02-16,Carolina Rice 50lb,30.9,BG,28.00,865.20
+GHD0000007,4,CW-WV,Granary Hill Dry Goods,2024-02-14,2024-02-16,Potato Buns 96ct,28.4,CS,31.00,880.40
+GHD0000007,5,CW-WV,Granary Hill Dry Goods,2024-02-14,2024-02-16,Baking Chocolate,13.8,CS,63.00,869.40
+GHD0000007,6,CW-WV,Granary Hill Dry Goods,2024-02-14,2024-02-16,Spice Program,16.6,CS,44.00,730.40
+QCR0000007,1,CW-WV,Quillbrook Coffee Roasters,2024-02-13,2024-02-14,Cold Brew Concentrate,6.9,GAL,21.00,144.90
+QCR0000007,2,CW-WV,Quillbrook Coffee Roasters,2024-02-13,2024-02-14,House Blend Beans,13.0,LB,9.75,126.75
+QCR0000007,3,CW-WV,Quillbrook Coffee Roasters,2024-02-13,2024-02-14,Tea Program,4.6,case,34.00,156.40
+MBS0000007,1,CW-WV,Meridian Beverage Supply,2024-02-12,2024-02-12,Sparkling Water 24ct,1.8,CS,22.00,39.60
+MBS0000007,2,CW-WV,Meridian Beverage Supply,2024-02-12,2024-02-12,Lemonade Base,0.9,Case,27.00,24.30
+MBS0000007,3,CW-WV,Meridian Beverage Supply,2024-02-12,2024-02-12,House Syrups,1.3,CS,31.00,40.30
+HWS0000007,1,CW-WV,Harborline Wine & Spirits,2024-02-15,2024-02-17,House Wine 12ct,3.3,CS,96.00,316.80
+HWS0000007,2,CW-WV,Harborline Wine & Spirits,2024-02-15,2024-02-17,Local Lager 1/2 BBL,1.3,KEG,195.00,253.50
+HWS0000007,3,CW-WV,Harborline Wine & Spirits,2024-02-15,2024-02-17,Gin 6ct,1.7,CS,210.00,357.00
+CPP0000007,1,CW-WV,Cleanline Paper & Packaging,2024-02-14,2024-02-14,To-Go Containers,1.2,CS,64.00,76.80
+CPP0000007,2,CW-WV,Cleanline Paper & Packaging,2024-02-14,2024-02-14,Carry Bags,3.0,CS,33.00,99.00
+CPP0000007,3,CW-WV,Cleanline Paper & Packaging,2024-02-14,2024-02-14,Hot/Cold Cups,1.9,CS,51.00,96.90
+DBP0000029,1,CW-WV,Duncliff Beef & Provisions,2024-02-20,2024-02-20,Ground Beef 80/20,144.0,LB,3.85,554.40
+DBP0000029,2,CW-WV,Duncliff Beef & Provisions,2024-02-20,2024-02-20,Brisket,59.3,lb,5.60,332.08
+DBP0000029,3,CW-WV,Duncliff Beef & Provisions,2024-02-20,2024-02-20,Hanger Steak,52.2,LB,9.20,480.24
+DBP0000029,4,CW-WV,Duncliff Beef & Provisions,2024-02-20,2024-02-20,Beef Short Rib,57.1,LB,6.90,393.99
+DBP0000029,5,CW-WV,Duncliff Beef & Provisions,2024-02-20,2024-02-20,Applewood Bacon,147.7,LB,4.60,679.42
+DBP0000030,1,CW-WV,Duncliff Beef & Provisions,2024-02-23,2024-02-23,Beef Short Rib,60.8,LB,6.90,419.52
+DBP0000030,2,CW-WV,Duncliff Beef & Provisions,2024-02-23,2024-02-23,Ground Beef 80/20,135.0,LB,3.85,519.75
+DBP0000030,3,CW-WV,Duncliff Beef & Provisions,2024-02-23,2024-02-23,Pork Belly,144.6,LB,4.10,592.86
+DBP0000030,4,CW-WV,Duncliff Beef & Provisions,2024-02-23,2024-02-23,Hanger Steak,53.3,LB,9.20,490.36
+DBP0000031,1,CW-WV,Duncliff Beef & Provisions,2024-02-20,2024-02-20,Party Wings,100.6,LB,3.15,316.89
+DBP0000031,2,CW-WV,Duncliff Beef & Provisions,2024-02-20,2024-02-20,Half Chickens,106.9,EA,3.90,416.91
+DBP0000031,3,CW-WV,Duncliff Beef & Provisions,2024-02-20,2024-02-20,Chicken Breast,154.9,LB,3.30,511.17
+DBP0000032,1,CW-WV,Duncliff Beef & Provisions,2024-02-23,2024-02-25,Chicken Breast,107.3,LB,3.30,354.09
+DBP0000032,2,CW-WV,Duncliff Beef & Provisions,2024-02-23,2024-02-25,Half Chickens,137.9,EA,3.90,537.81
+DBP0000032,3,CW-WV,Duncliff Beef & Provisions,2024-02-23,2024-02-25,Ground Turkey,109.4,LB,3.45,377.43
+WFC0000015,1,CW-WV,Windrow Fish Co.,2024-02-20,2024-02-20,Salmon Fillet,49.5,LB,8.31,411.35
+WFC0000015,2,CW-WV,Windrow Fish Co.,2024-02-20,2024-02-20,Cod Loin,35.9,LB,6.63,238.02
+WFC0000015,3,CW-WV,Windrow Fish Co.,2024-02-20,2024-02-20,Smoked Trout,19.1,LB,10.74,205.13
+WFC0000016,1,CW-WV,Windrow Fish Co.,2024-02-22,2024-02-24,Salmon Fillet,33.9,LB,8.31,281.71
+WFC0000016,2,CW-WV,Windrow Fish Co.,2024-02-22,2024-02-24,Cod Loin,30.1,LB,6.63,199.56
+WFC0000016,3,CW-WV,Windrow Fish Co.,2024-02-22,2024-02-24,Smoked Trout,32.0,LB,10.74,343.68
+HCP0000022,1,CW-WV,Hudson Crate Produce,2024-02-19,2024-02-21,Yellow Onions 50lb,19.6,BG,19.63,384.75
+HCP0000022,2,CW-WV,Hudson Crate Produce,2024-02-19,2024-02-21,Potatoes 50lb,11.3,BG,27.90,315.27
+HCP0000022,3,CW-WV,Hudson Crate Produce,2024-02-19,2024-02-21,Mixed Greens,19.2,CS,21.70,416.64
+HCP0000022,4,CW-WV,Hudson Crate Produce,2024-02-19,2024-02-21,Brussels Sprouts,148.1,LB,2.48,367.29
+HCP0000022,5,CW-WV,Hudson Crate Produce,2024-02-19,2024-02-21,Lacinato Kale,17.4,CS,24.80,431.52
+HCP0000023,1,CW-WV,Hudson Crate Produce,2024-02-21,2024-02-21,Avocados 48ct,3.0,CS,59.93,179.79
+HCP0000023,2,CW-WV,Hudson Crate Produce,2024-02-21,2024-02-21,Lemons 115ct,7.9,CS,34.10,269.39
+HCP0000023,3,CW-WV,Hudson Crate Produce,2024-02-21,2024-02-21,Tomatoes 25lb,12.3,CS,29.97,368.63
+HCP0000023,4,CW-WV,Hudson Crate Produce,2024-02-21,2024-02-21,Potatoes 50lb,7.4,BG,27.90,206.46
+HCP0000023,5,CW-WV,Hudson Crate Produce,2024-02-21,2024-02-21,Yellow Onions 50lb,10.2,BG,19.63,200.23
+HCP0000023,6,CW-WV,Hudson Crate Produce,2024-02-21,2024-02-21,Lacinato Kale,11.5,CS,24.80,285.20
+HCP0000023,7,CW-WV,Hudson Crate Produce,2024-02-21,2024-02-21,Brussels Sprouts,90.7,LB,2.48,224.94
+HCP0000024,1,CW-WV,Hudson Crate Produce,2024-02-24,2024-02-26,Potatoes 50lb,11.6,BG,27.90,323.64
+HCP0000024,2,CW-WV,Hudson Crate Produce,2024-02-24,2024-02-26,Tomatoes 25lb,17.2,CS,29.97,515.48
+HCP0000024,3,CW-WV,Hudson Crate Produce,2024-02-24,2024-02-26,Lemons 115ct,16.6,CS,34.10,566.06
+HCP0000024,4,CW-WV,Hudson Crate Produce,2024-02-24,2024-02-26,Yellow Onions 50lb,17.2,BG,19.63,337.64
+HCP0000024,5,CW-WV,Hudson Crate Produce,2024-02-24,2024-02-26,Herb Mix,14.3,CS,26.87,384.24
+KDE0000015,1,CW-WV,Kettleboro Dairy & Eggs,2024-02-19,2024-02-19,Soft-Serve Base,3.4,CS,46.00,156.40
+KDE0000015,2,CW-WV,Kettleboro Dairy & Eggs,2024-02-19,2024-02-19,Eggs 15dz Loose,6.6,CS,42.00,277.20
+KDE0000015,3,CW-WV,Kettleboro Dairy & Eggs,2024-02-19,2024-02-19,Cheddar Block,81.4,LB,3.10,252.34
+KDE0000015,4,CW-WV,Kettleboro Dairy & Eggs,2024-02-19,2024-02-19,Butter Solids 36lb,2.7,CS,118.00,318.60
+KDE0000015,5,CW-WV,Kettleboro Dairy & Eggs,2024-02-19,2024-02-19,Whole Milk,76.1,GAL,3.90,296.79
+KDE0000016,1,CW-WV,Kettleboro Dairy & Eggs,2024-02-22,2024-02-23,Eggs 15dz Loose,7.5,CS,42.00,315.00
+KDE0000016,2,CW-WV,Kettleboro Dairy & Eggs,2024-02-22,2024-02-23,Butter Solids 36lb,2.0,CS,118.00,236.00
+KDE0000016,3,CW-WV,Kettleboro Dairy & Eggs,2024-02-22,2024-02-23,Cheddar Block,114.7,lb,3.10,355.57
+KDE0000016,4,CW-WV,Kettleboro Dairy & Eggs,2024-02-22,2024-02-23,Whole Milk,83.7,GAL,3.90,326.43
+KDE0000016,5,CW-WV,Kettleboro Dairy & Eggs,2024-02-22,2024-02-23,Soft-Serve Base,4.0,CS,46.00,184.00
+GHD0000008,1,CW-WV,Granary Hill Dry Goods,2024-02-21,2024-02-22,AP Flour 50lb,42.3,bag,21.00,888.30
+GHD0000008,2,CW-WV,Granary Hill Dry Goods,2024-02-21,2024-02-22,Fry Oil 35lb JIB,35.7,ea,38.00,1356.60
+GHD0000008,3,CW-WV,Granary Hill Dry Goods,2024-02-21,2024-02-22,Potato Buns 96ct,43.0,CS,31.00,1333.00
+GHD0000008,4,CW-WV,Granary Hill Dry Goods,2024-02-21,2024-02-22,Carolina Rice 50lb,44.8,BG,28.00,1254.40
+QCR0000008,1,CW-WV,Quillbrook Coffee Roasters,2024-02-20,2024-02-22,Cold Brew Concentrate,7.9,GAL,21.00,165.90
+QCR0000008,2,CW-WV,Quillbrook Coffee Roasters,2024-02-20,2024-02-22,House Blend Beans,17.6,LB,9.75,171.60
+QCR0000008,3,CW-WV,Quillbrook Coffee Roasters,2024-02-20,2024-02-22,Tea Program,2.8,CS,34.00,95.20
+MBS0000008,1,CW-WV,Meridian Beverage Supply,2024-02-19,2024-02-21,Sparkling Water 24ct,1.4,CS,22.00,30.80
+MBS0000008,2,CW-WV,Meridian Beverage Supply,2024-02-19,2024-02-21,House Syrups,1.1,CS,31.00,34.10
+MBS0000008,3,CW-WV,Meridian Beverage Supply,2024-02-19,2024-02-21,Lemonade Base,1.4,CS,27.00,37.80
+HWS0000008,1,CW-WV,Harborline Wine & Spirits,2024-02-22,2024-02-23,Bar Mixers,13.2,CS,25.00,330.00
+HWS0000008,2,CW-WV,Harborline Wine & Spirits,2024-02-22,2024-02-23,Local Lager 1/2 BBL,2.0,KEG,195.00,390.00
+HWS0000008,3,CW-WV,Harborline Wine & Spirits,2024-02-22,2024-02-23,House Wine 12ct,2.6,CS,96.00,249.60

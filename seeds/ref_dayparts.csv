@@ -1,0 +1,6 @@
+daypart,start_time,end_time
+breakfast,07:00,10:59
+lunch,11:00,14:59
+afternoon,15:00,16:59
+dinner,17:00,21:59
+late_night,22:00,01:59

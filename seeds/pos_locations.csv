@@ -1,0 +1,11 @@
+location_code,location_name,neighborhood,borough,service_format,volume_tier,seats,open_date,closed_date
+CW-WV,Copperwick West Village,West Village,Manhattan,full_service,T1,110,2016-05-12,
+CW-UWS,Copperwick Upper West Side,Upper West Side,Manhattan,full_service,T2,95,2017-10-03,
+CW-GC,Copperwick Grand Central,Grand Central,Manhattan,full_service,T2,85,2018-03-20,2025-06-30
+CW-GCX,Copperwick Grand Central,Grand Central,Manhattan,counter_service,T3,48,2025-07-01,
+CW-SOHO,Copperwick SoHo,SoHo,Manhattan,full_service,T2,75,2019-06-11,
+CW-FD,Copperwick Financial District,Financial District,Manhattan,full_service,T3,70,2019-11-05,
+CW-WB,Copperwick Williamsburg,Williamsburg,Brooklyn,full_service,T2,80,2021-04-16,
+CW-PS,Copperwick Park Slope,Park Slope,Brooklyn,full_service,T3,65,2022-08-09,
+CW-LIC,Copperwick LIC Express,Long Island City,Queens,counter_service,T4,35,2023-02-21,
+CW-AST,Copperwick Astoria,Astoria,Queens,full_service,T3,70,2025-09-16,
