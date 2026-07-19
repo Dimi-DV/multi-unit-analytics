@@ -19,3 +19,5 @@ docs/DRILL-PLAN.md
 data/generated/
 # eval runs: publishing a number is a deliberate act, not a side effect of running
 eval/results/
+# dbt per-machine cookie
+profiles/.user.yml
