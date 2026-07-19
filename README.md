@@ -9,13 +9,20 @@
 > design** (real multi-location P&L data is proprietary everywhere), with realism anchored to cited
 > public sources. See [Data & methodology](#data--methodology).
 
-Status: Phase 0 (dataset, schema, infrastructure) is built. Phase 1 (the analysis SQL, written by
-hand) is in progress; nothing is claimed here before it exists in this repo.
+Status: dataset, schema, staging/marts layers, and the twelve analysis queries are built and run
+against the loaded database. The decision memo and the query EXPLAIN notes are in progress; nothing
+is claimed here before it exists in this repo.
 
 ## The business question
 
-<!-- Phase 1: 3-line executive summary: business problem, headline numeric finding, recommended
-     action, all transcribed from measured query output. -->
+One of nine locations ran 4.2 points over the group's 60.0% prime-cost target for the trailing
+twelve months, roughly $127K a year of excess cost (analysis/12). The measured decomposition: a
+weekend labor template rolled out group-wide in early 2025 was never rescaled to that store's weak
+weekend demand (weekend labor hit 52.9% of weekend sales against a 32.9% baseline), plus a beef
+price pass-through the group declined to take on its two beef flagships. Recommended: rebuild the
+weekend schedule template and reprice the two held items. Same dataset, same queries also show why
+naive growth reads lie: naive H1-2026 growth is +10.2% while true comp growth is +4.8%
+(analysis/04), the gap being one opening ramp and one format conversion.
 
 ## What's here
 
@@ -24,8 +31,8 @@ hand) is in progress; nothing is claimed here before it exists in this repo.
 | `generator/` | Seeded, byte-reproducible Python data generator: realistic distributions, a documented parameterized anomaly-injection pass, and a calibration checker that fails if the planted storyline drifts out of tolerance |
 | `seeds/` | Committed reference and dimension CSVs, 500-row fact samples, and the SHA-256 manifest that pins the regenerated facts |
 | `db/` | Raw-layer DDL: all-TEXT schema-on-read tables (typing is the first transformation) |
-| `sql/` | Staging and marts layers; checklist stubs now, hand-written SQL as Phase 1 lands |
-| `analysis/` | Twelve numbered business-question queries; spec stubs now, hand-written SQL as Phase 1 lands |
+| `sql/` | Typed staging views (three date formats, UTC window, dedup ranking) and constrained marts where the cleaning contract is applied exactly once; the fact PK doubles as the dedup regression test |
+| `analysis/` | Twelve numbered business-question queries covering filter+HAVING, conditional joins, top-N per group, LAG/LEAD, gap-and-islands, dedup-keep-latest, and a recursive hierarchy rollup; every headline number above is transcribed from their output |
 | `scripts/` | Loader (psycopg COPY), setup wrappers for PowerShell and make, determinism and content guards |
 | `docs/` | [Dataset design and provenance](docs/DATASET.md); the decision memo lands with Phase 1 |
 
@@ -45,7 +52,8 @@ git clone <this repo> && cd multi-unit-analytics
 
 That creates a venv with exact pins, regenerates the dataset (about 4 minutes), verifies checksums
 against the committed manifest, starts pinned Postgres 16 on port 5433, and loads about 5M rows.
-`python -m generator --verify` re-checks byte-identity at any time.
+Then `make build` applies the staging and marts layers, and any file in `analysis/` runs with
+`psql -f`. `python -m generator --verify` re-checks byte-identity at any time.
 
 ## Data & methodology
 
@@ -59,7 +67,7 @@ measured query output, never from generator constants.
 ## Decisions I made (and what I rejected)
 
 Built with Claude Code as a force multiplier: it scaffolded the generator, infra, and this repo's
-guardrails; 
+guardrails, and wrote the SQL layers to the specs and decisions recorded below.
 
 <!-- The entries below were drafted during Phase 0 scaffolding and are pending my edit; each one
      records a real design decision with the alternative that was rejected. -->

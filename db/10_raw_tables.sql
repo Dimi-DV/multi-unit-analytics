@@ -1,5 +1,5 @@
 -- Raw layer: schema-on-read. Every column is TEXT, no constraints, no keys.
--- Typing is the first transformation and happens in owner-written staging SQL.
+-- Typing is the first transformation and happens in the staging layer.
 -- Column order here is the CSV contract; the generator writes these exact orders.
 -- Idempotent: safe to re-run at any time.
 
@@ -132,7 +132,7 @@ CREATE TABLE raw.ref_dayparts (
 );
 
 -- Dish-name alias map, including canonical spellings, so the staging join can be
--- a total inner join with a zero-row anti-join audit (owner-written in Phase 1).
+-- a total inner join with a zero-row anti-join audit (see analysis/03).
 DROP TABLE IF EXISTS raw.ref_item_aliases;
 CREATE TABLE raw.ref_item_aliases (
     alias        text,

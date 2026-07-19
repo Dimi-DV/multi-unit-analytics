@@ -1,7 +1,11 @@
--- stg_labor__daily: staging view over raw.labor_daily (1:1, cast + normalize, no business logic)
--- Cleaning checklist:
---   - types; normalize role casing/whitespace
---
--- Status: STUB. The query body here is written by hand by the repo owner
--- (ownership rule in the README's Decisions section). Scaffolding only
--- carries the spec; committing generated SQL here would defeat the point.
+-- staging.stg_labor__daily: types plus role normalization (the payroll export
+-- carries casing and whitespace variants of the same role).
+
+CREATE OR REPLACE VIEW staging.stg_labor__daily AS
+SELECT
+    business_date::date     AS business_date,
+    location_code,
+    initcap(trim(role))     AS role,
+    hours::numeric(6,2)     AS hours,
+    wages::numeric(9,2)     AS wages
+FROM raw.labor_daily;

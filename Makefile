@@ -23,7 +23,7 @@ load:
 	docker compose up -d --wait
 	$(PY) scripts/load.py
 
-# Phase 1: applies owner-written staging and marts SQL in lexical order.
+# Applies staging then marts SQL in lexical order.
 build:
 	$(PY) scripts/build_sql.py
 

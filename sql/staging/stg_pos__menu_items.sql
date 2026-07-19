@@ -1,7 +1,15 @@
--- stg_pos__menu_items: staging view over raw.pos_menu_items (1:1, cast + normalize, no business logic)
--- Cleaning checklist:
---   - types; normalize category casing/whitespace; keep NULL costs NULL (imputation is an analysis decision)
---
--- Status: STUB. The query body here is written by hand by the repo owner
--- (ownership rule in the README's Decisions section). Scaffolding only
--- carries the spec; committing generated SQL here would defeat the point.
+-- staging.stg_pos__menu_items: types plus category normalization (casing and
+-- whitespace drift in the export). NULL theoretical costs stay NULL: whether
+-- and how to impute is an analysis decision, not a staging one.
+
+CREATE OR REPLACE VIEW staging.stg_pos__menu_items AS
+SELECT
+    menu_item_id::smallint                          AS menu_item_id,
+    item_name,
+    CASE lower(trim(category))
+        WHEN 'na beverages' THEN 'NA Beverages'
+        ELSE initcap(trim(category))
+    END                                             AS category,
+    standard_price::numeric(7,2)                    AS standard_price,
+    NULLIF(theoretical_unit_cost, '')::numeric(7,4) AS theoretical_unit_cost
+FROM raw.pos_menu_items;

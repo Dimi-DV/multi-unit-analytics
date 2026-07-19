@@ -1,4 +1,4 @@
-"""Apply owner-written SQL: sql/staging/*.sql then sql/marts/*.sql in lexical
+"""Apply the SQL layers: sql/staging/*.sql then sql/marts/*.sql in lexical
 order. Files that contain no executable statements yet (spec stubs are pure
 comments) are reported and skipped, so this command stays runnable at every
 stage of Phase 1.
@@ -37,9 +37,9 @@ def main() -> int:
                 continue
             with conn.cursor() as cur:
                 cur.execute(path.read_text(encoding="utf-8"))
+            conn.commit()   # per file: a late failure must not roll back built layers
             print(f"  applied: {rel}")
             applied += 1
-        conn.commit()
     print(f"build: {applied} applied, {skipped} stubs skipped")
     return 0
 

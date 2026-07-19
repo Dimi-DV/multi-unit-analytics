@@ -22,7 +22,7 @@ Fictional group: Copperwick, a 9-location NYC all-day American bistro group,
 2024-01-01 through 2026-06-30 (a constant; the generator never reads the
 clock). Four raw fact feeds and eight reference/dimension seeds, loaded into an
 all-TEXT `raw` schema (schema-on-read: typing is the first transformation, done
-in owner-written staging SQL).
+in the staging layer).
 
 | Feed | Grain | ~Rows |
 |---|---|---|
@@ -69,7 +69,7 @@ a documented cleaning step (the staging checklists in `sql/staging/`):
    invoices post 2-5 weeks after invoice date.
 5. **Voids, comps, refunds**: business reality, not defects; the net-sales
    rule (sales net of discounts, refunds negative, voids and comps excluded)
-   is applied once, in the owner-written mart.
+   is applied once, in the mart.
 6. **NULL costs**: three rotating menu items carry no cost card; a produce
    vendor window has blank invoice unit costs with extended cost present.
 7. **Inconsistent date formats**: two stores exported M/D/YYYY and YYYY/MM/DD

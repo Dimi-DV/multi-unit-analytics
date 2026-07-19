@@ -1,8 +1,12 @@
--- marts.dim_vendor
--- Grain: one row per vendor (9)
--- Owner-written DDL + INSERT/SELECT from staging views. Types, keys and
--- CHECK constraints are part of the interview surface and are hand-written.
---
--- Status: STUB. The query body here is written by hand by the repo owner
--- (ownership rule in the README's Decisions section). Scaffolding only
--- carries the spec; committing generated SQL here would defeat the point.
+-- marts.dim_vendor: one row per vendor house (9).
+
+DROP TABLE IF EXISTS marts.dim_vendor CASCADE;
+CREATE TABLE marts.dim_vendor (
+    vendor_id       smallint PRIMARY KEY,
+    vendor_name     text NOT NULL UNIQUE,
+    vendor_category text NOT NULL
+);
+
+INSERT INTO marts.dim_vendor
+SELECT vendor_id, vendor_name, vendor_category
+FROM staging.stg_ap__vendors;
