@@ -1,0 +1,331 @@
+# Ground-truth question bank. Scoring is execution-match: any SQL formulation
+# that returns the same result set passes. match: ordered means the question
+# itself demands an ordering; everything else compares row-order-insensitive.
+# Canonical queries are validated against the loaded database in CI-adjacent
+# checks; they are the answer key, so they stay boring on purpose.
+
+- id: q01
+  difficulty: easy
+  question: How many locations does the group operate?
+  match: unordered
+  canonical_sql: |
+    select count(*) from marts.dim_location
+
+- id: q02
+  difficulty: easy
+  question: List the location names and neighborhoods of our Brooklyn restaurants.
+  match: unordered
+  canonical_sql: |
+    select location_name, neighborhood
+    from marts.dim_location
+    where borough = 'Brooklyn'
+
+- id: q03
+  difficulty: easy
+  question: What is the menu price of the Copperwick Smash Burger?
+  match: unordered
+  canonical_sql: |
+    select standard_price from marts.dim_menu_item
+    where item_name = 'Copperwick Smash Burger'
+
+- id: q04
+  difficulty: easy
+  question: How many menu items are in the Mains category?
+  match: unordered
+  canonical_sql: |
+    select count(*) from marts.dim_menu_item where category = 'Mains'
+
+- id: q05
+  difficulty: easy
+  question: What were total group net sales in calendar 2025, in dollars?
+  match: unordered
+  canonical_sql: |
+    select sum(net_amount)
+    from marts.fact_ticket_line
+    where business_date between date '2025-01-01' and date '2025-12-31'
+
+- id: q06
+  difficulty: easy
+  question: Which vendor supplies our coffee and tea?
+  match: unordered
+  canonical_sql: |
+    select vendor_name from marts.dim_vendor where vendor_category = 'coffee_tea'
+
+- id: q07
+  difficulty: easy
+  question: Which menu items have no theoretical cost on their cost card?
+  match: unordered
+  canonical_sql: |
+    select item_name from marts.dim_menu_item where theoretical_unit_cost is null
+
+- id: q08
+  difficulty: medium
+  question: Show 2025 net sales by borough, highest first.
+  match: ordered
+  canonical_sql: |
+    select l.borough, sum(f.net_amount) as net_sales
+    from marts.fact_ticket_line f
+    join marts.dim_location l using (location_id)
+    where f.business_date between date '2025-01-01' and date '2025-12-31'
+    group by l.borough
+    order by net_sales desc
+
+- id: q09
+  difficulty: medium
+  question: What was the average check (net sales per ticket) by location in 2025?
+  match: unordered
+  canonical_sql: |
+    select l.location_code,
+           round(sum(f.net_amount) / count(distinct (f.business_date, f.ticket_number)), 2)
+    from marts.fact_ticket_line f
+    join marts.dim_location l using (location_id)
+    where f.business_date between date '2025-01-01' and date '2025-12-31'
+    group by l.location_code
+
+- id: q10
+  difficulty: medium
+  question: What were the five best-selling menu items by units across the group in 2024?
+  match: ordered
+  canonical_sql: |
+    select m.item_name, sum(f.qty) as units
+    from marts.fact_ticket_line f
+    join marts.dim_menu_item m using (menu_item_id)
+    where f.line_state = 'sale'
+      and f.business_date between date '2024-01-01' and date '2024-12-31'
+    group by m.item_name
+    order by units desc
+    limit 5
+
+- id: q11
+  difficulty: medium
+  question: Show monthly net sales for Copperwick West Village across 2025, in month order.
+  match: ordered
+  canonical_sql: |
+    select date_trunc('month', f.business_date)::date as month, sum(f.net_amount)
+    from marts.fact_ticket_line f
+    join marts.dim_location l using (location_id)
+    where l.location_code = 'CW-WV'
+      and f.business_date between date '2025-01-01' and date '2025-12-31'
+    group by 1
+    order by 1
+
+- id: q12
+  difficulty: medium
+  question: What share of each location's 2025 tickets were delivery orders?
+  match: unordered
+  canonical_sql: |
+    with t as (
+      select f.location_id, f.business_date, f.ticket_number,
+             bool_or(f.order_mode = 'DL') as is_delivery
+      from marts.fact_ticket_line f
+      where f.business_date between date '2025-01-01' and date '2025-12-31'
+      group by 1, 2, 3
+    )
+    select l.location_code,
+           round(100.0 * count(*) filter (where is_delivery) / count(*), 1)
+    from t join marts.dim_location l using (location_id)
+    group by l.location_code
+
+- id: q13
+  difficulty: medium
+  question: How much comp (free food) value did each location give away in 2025?
+  match: unordered
+  canonical_sql: |
+    select l.location_code, sum(f.gross_amount)
+    from marts.fact_ticket_line f
+    join marts.dim_location l using (location_id)
+    where f.line_state = 'comp'
+      and f.business_date between date '2025-01-01' and date '2025-12-31'
+    group by l.location_code
+
+- id: q14
+  difficulty: medium
+  question: Which five location-months overspent their labor budget by the most dollars during 2025?
+  match: ordered
+  canonical_sql: |
+    with labor as (
+      select location_id, date_trunc('month', business_date)::date as month_start,
+             sum(wages) as labor_cost
+      from marts.fact_labor_day
+      where business_date between date '2025-01-01' and date '2025-12-31'
+      group by 1, 2
+    )
+    select l.location_code, b.month_start,
+           round(w.labor_cost - b.labor_budget, 2) as over_budget
+    from labor w
+    join marts.fact_budget_month b using (location_id, month_start)
+    join marts.dim_location l using (location_id)
+    order by over_budget desc
+    limit 5
+
+- id: q15
+  difficulty: medium
+  question: For each location, what share of 2025 net sales came on weekends?
+  match: unordered
+  canonical_sql: |
+    select l.location_code,
+           round(100.0 * sum(f.net_amount) filter (where d.is_weekend)
+                 / sum(f.net_amount), 1)
+    from marts.fact_ticket_line f
+    join marts.dim_location l using (location_id)
+    join marts.dim_date d on d.date_key = f.business_date
+    where f.business_date between date '2025-01-01' and date '2025-12-31'
+    group by l.location_code
+
+- id: q16
+  difficulty: hard
+  question: What were the top 3 dishes by units at every location in the fourth quarter of 2025?
+  match: unordered
+  canonical_sql: |
+    with ranked as (
+      select l.location_code, m.item_name, sum(f.qty) as units,
+             row_number() over (partition by l.location_code
+                                order by sum(f.qty) desc, m.item_name) as rn
+      from marts.fact_ticket_line f
+      join marts.dim_location l using (location_id)
+      join marts.dim_menu_item m using (menu_item_id)
+      where f.line_state = 'sale'
+        and f.business_date between date '2025-10-01' and date '2025-12-31'
+      group by 1, 2
+    )
+    select location_code, item_name, units from ranked where rn <= 3
+
+- id: q17
+  difficulty: hard
+  question: Show year-over-year net sales growth by location, 2025 versus 2024, as a percentage.
+  match: unordered
+  canonical_sql: |
+    select l.location_code,
+           round(100.0 * (sum(f.net_amount) filter (where f.business_date >= date '2025-01-01'
+                                                      and f.business_date <= date '2025-12-31')
+                          / nullif(sum(f.net_amount) filter (where f.business_date >= date '2024-01-01'
+                                                               and f.business_date <= date '2024-12-31'), 0)
+                          - 1), 1)
+    from marts.fact_ticket_line f
+    join marts.dim_location l using (location_id)
+    where f.business_date <= date '2025-12-31'
+    group by l.location_code
+
+- id: q18
+  difficulty: hard
+  question: On how many days in 2025 did each location's GL net sales differ from POS net sales?
+  match: unordered
+  canonical_sql: |
+    with pos as (
+      select location_id, business_date, sum(net_amount) as pos_net
+      from marts.fact_ticket_line
+      where business_date between date '2025-01-01' and date '2025-12-31'
+      group by 1, 2
+    )
+    select l.location_code, count(*) filter (where g.gl_net_sales <> p.pos_net)
+    from pos p
+    join marts.fact_gl_day g using (location_id, business_date)
+    join marts.dim_location l using (location_id)
+    group by l.location_code
+
+- id: q19
+  difficulty: hard
+  question: Rank locations by prime cost percentage for the twelve months ending June 2026.
+  match: ordered
+  canonical_sql: |
+    with net as (
+      select location_id, sum(net_amount) as net_sales
+      from marts.fact_ticket_line
+      where business_date between date '2025-07-01' and date '2026-06-30'
+      group by 1
+    ),
+    cogs as (
+      select location_id, sum(ext_cost) as purchases
+      from marts.fact_invoice_line
+      where invoice_date between date '2025-07-01' and date '2026-06-30'
+      group by 1
+    ),
+    labor as (
+      select location_id, sum(wages) as labor_cost
+      from marts.fact_labor_day
+      where business_date between date '2025-07-01' and date '2026-06-30'
+      group by 1
+    )
+    select l.location_code,
+           round(100.0 * (c.purchases + w.labor_cost) / n.net_sales, 2) as prime_pct
+    from net n
+    join cogs c using (location_id)
+    join labor w using (location_id)
+    join marts.dim_location l using (location_id)
+    order by prime_pct desc
+
+- id: q20
+  difficulty: hard
+  question: What share of tickets included a non-alcoholic beverage at each location in the first half of 2026?
+  match: unordered
+  canonical_sql: |
+    with t as (
+      select f.location_id, f.business_date, f.ticket_number,
+             bool_or(m.category = 'NA Beverages' and f.line_state = 'sale') as has_na,
+             bool_or(f.line_state = 'sale') as has_sale
+      from marts.fact_ticket_line f
+      join marts.dim_menu_item m using (menu_item_id)
+      where f.business_date between date '2026-01-01' and date '2026-06-30'
+      group by 1, 2, 3
+    )
+    select l.location_code,
+           round(100.0 * count(*) filter (where has_na) / count(*), 1)
+    from t join marts.dim_location l using (location_id)
+    where has_sale
+    group by l.location_code
+
+- id: q21
+  difficulty: hard
+  question: Compare the Grand Central store's dinner share of net sales before and after its July 2025 format conversion.
+  match: unordered
+  canonical_sql: |
+    select case when f.business_date < date '2025-07-01' then 'before' else 'after' end as era,
+           round(100.0 * sum(f.net_amount) filter (where f.daypart = 'dinner')
+                 / sum(f.net_amount), 1)
+    from marts.fact_ticket_line f
+    join marts.dim_location l using (location_id)
+    where l.location_code = 'CW-GCX'
+    group by 1
+
+- id: q22
+  difficulty: hard
+  question: How did the average selling price of the Kale Caesar change from May 2025 to July 2025?
+  match: unordered
+  canonical_sql: |
+    select to_char(date_trunc('month', f.business_date), 'YYYY-MM') as month,
+           round(avg(f.unit_price), 2)
+    from marts.fact_ticket_line f
+    join marts.dim_menu_item m using (menu_item_id)
+    where m.item_name = 'Kale Caesar'
+      and f.line_state = 'sale'
+      and date_trunc('month', f.business_date) in (date '2025-05-01', date '2025-07-01')
+    group by 1
+
+- id: q23
+  difficulty: hard
+  question: What percentage of our total 2025 purchase spend went to each vendor?
+  match: unordered
+  canonical_sql: |
+    select v.vendor_name,
+           round(100.0 * sum(i.ext_cost) / sum(sum(i.ext_cost)) over (), 1)
+    from marts.fact_invoice_line i
+    join marts.dim_vendor v using (vendor_id)
+    where i.invoice_date between date '2025-01-01' and date '2025-12-31'
+    group by v.vendor_name
+
+- id: q24
+  difficulty: hard
+  question: By what percentage did the average unit cost of Ground Beef 80/20 rise from February 2025 to March 2025?
+  match: unordered
+  canonical_sql: |
+    with m as (
+      select date_trunc('month', invoice_date)::date as month_start,
+             avg(unit_cost_filled) as cost
+      from marts.fact_invoice_line
+      where item_desc = 'Ground Beef 80/20'
+        and invoice_date between date '2025-02-01' and date '2025-03-31'
+      group by 1
+    )
+    select round(100.0 * (max(cost) filter (where month_start = date '2025-03-01')
+                          / max(cost) filter (where month_start = date '2025-02-01') - 1), 1)
+    from m

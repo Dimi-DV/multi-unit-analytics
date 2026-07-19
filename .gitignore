@@ -17,3 +17,5 @@ docs/BUILD-SPEC.md
 docs/DRILL-PLAN.md
 # generated fact CSVs: regenerate with `python -m generator`, pinned by seeds/manifest.sha256
 data/generated/
+# eval runs: publishing a number is a deliberate act, not a side effect of running
+eval/results/
