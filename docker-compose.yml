@@ -1,0 +1,24 @@
+# One-command local Postgres for this project. Start: docker compose up -d --wait
+# Image is pinned by immutable digest; the tag documents intent (tags are mutable,
+# official images are rebuilt under the same tag for security patches).
+# Tag at pin time: postgres:16.14-bookworm (index digest, pushed 2026-07-14).
+services:
+  postgres:
+    image: postgres:16.14-bookworm@sha256:92620daddcd947f8d5ab5ba66e848702fe443d87fed30c4cea8e389fd78dfc55
+    container_name: mua_postgres
+    environment:
+      POSTGRES_USER: mua
+      POSTGRES_PASSWORD: mua_local_dev # local-only dev credential, used nowhere else
+      POSTGRES_DB: mua
+    ports:
+      - "5433:5432" # 5433 on the host to avoid colliding with any local Postgres install
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mua -d mua"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

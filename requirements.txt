@@ -1,0 +1,5 @@
+# Exact pins: the generator's byte-identical output depends on the numpy version
+# (NumPy guarantees bit-generator stream stability but may change Generator
+# distribution methods between feature releases). Python 3.12 (see .python-version).
+numpy==2.5.1
+psycopg[binary]==3.3.4
