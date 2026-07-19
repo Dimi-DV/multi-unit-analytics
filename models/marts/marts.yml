@@ -1,0 +1,137 @@
+version: 2
+
+models:
+  - name: dim_location
+    description: One row per physical location; current attributes only
+    columns:
+      - name: location_id
+        tests: [unique, not_null]
+      - name: borough
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Manhattan', 'Brooklyn', 'Queens']
+      - name: service_format
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['full_service', 'counter_service']
+      - name: volume_tier
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['T1', 'T2', 'T3', 'T4']
+
+  - name: dim_location_history
+    description: One row per location-code era (10 rows for 9 locations)
+    columns:
+      - name: location_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_location')
+                field: location_id
+
+  - name: dim_date
+    columns:
+      - name: date_key
+        tests: [unique, not_null]
+      - name: holiday_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['federal', 'observance', 'city_event']
+
+  - name: dim_menu_item
+    columns:
+      - name: menu_item_id
+        tests: [unique, not_null]
+      - name: item_name
+        tests: [unique, not_null]
+      - name: category
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Brunch & Eggs', 'Starters', 'Salads & Bowls',
+                       'Sandwiches & Burgers', 'Mains', 'Sides', 'Desserts',
+                       'NA Beverages', 'Bar']
+
+  - name: dim_vendor
+    columns:
+      - name: vendor_id
+        tests: [unique, not_null]
+
+  - name: fact_ticket_line
+    description: >
+      One deduplicated POS ticket line; the net-sales rule is applied here and
+      nowhere else. Grain is enforced by the post-hook primary key.
+    columns:
+      - name: location_id
+        tests:
+          - not_null
+          - relationships: {arguments: {to: ref('dim_location'), field: location_id}}
+      - name: business_date
+        tests:
+          - not_null
+          - relationships: {arguments: {to: ref('dim_date'), field: date_key}}
+      - name: menu_item_id
+        tests:
+          - relationships: {arguments: {to: ref('dim_menu_item'), field: menu_item_id}}
+      - name: line_state
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['sale', 'void', 'comp', 'refund']
+      - name: order_mode
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['DI', 'TO', 'DL']
+      - name: daypart
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['breakfast', 'lunch', 'afternoon', 'dinner', 'late_night']
+    tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: >
+              line_state not in ('sale', 'refund')
+              or net_amount = gross_amount
+                - case when line_state = 'sale' then discount_amount else 0 end
+
+  - name: fact_invoice_line
+    columns:
+      - name: location_id
+        tests:
+          - relationships: {arguments: {to: ref('dim_location'), field: location_id}}
+      - name: vendor_id
+        tests:
+          - relationships: {arguments: {to: ref('dim_vendor'), field: vendor_id}}
+      - name: ext_cost
+        tests: [not_null]
+
+  - name: fact_labor_day
+    columns:
+      - name: location_id
+        tests:
+          - relationships: {arguments: {to: ref('dim_location'), field: location_id}}
+      - name: role
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Manager', 'Line Cook', 'Prep Cook', 'Server',
+                       'Busser', 'Bartender', 'Counter', 'Dishwasher']
+
+  - name: fact_gl_day
+    columns:
+      - name: location_id
+        tests:
+          - relationships: {arguments: {to: ref('dim_location'), field: location_id}}
+
+  - name: fact_budget_month
+    columns:
+      - name: location_id
+        tests:
+          - relationships: {arguments: {to: ref('dim_location'), field: location_id}}

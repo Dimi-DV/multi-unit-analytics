@@ -3,7 +3,6 @@
 -- present, unit_cost_filled back-calculates it; the raw NULL is preserved in
 -- unit_cost so the imputation is always visible.
 
-CREATE OR REPLACE VIEW staging.stg_ap__invoice_lines AS
 SELECT
     invoice_number,
     line_number::smallint               AS line_number,
@@ -26,4 +25,4 @@ SELECT
         round(ext_cost::numeric / NULLIF(qty::numeric, 0), 4)
     )                                   AS unit_cost_filled,
     ext_cost::numeric(12,2)             AS ext_cost
-FROM raw.ap_invoice_lines;
+FROM {{ source('ap', 'invoice_lines') }}

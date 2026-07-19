@@ -1,0 +1,14 @@
+# Committed profile, env-var driven with docker-compose defaults.
+# Point dbt at it with: DBT_PROFILES_DIR=profiles
+multi_unit_analytics:
+  target: local
+  outputs:
+    local:
+      type: postgres
+      host: "{{ env_var('PGHOST', '127.0.0.1') }}"
+      port: "{{ env_var('PGPORT', '5433') | as_number }}"
+      user: "{{ env_var('PGUSER', 'mua') }}"
+      password: "{{ env_var('PGPASSWORD', 'mua_local_dev') }}"
+      dbname: "{{ env_var('PGDATABASE', 'mua') }}"
+      schema: public
+      threads: 4

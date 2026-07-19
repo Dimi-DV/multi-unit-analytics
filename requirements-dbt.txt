@@ -1,0 +1,4 @@
+# Transformation-layer pins, separate from requirements.txt so the dataset
+# determinism job installs only what generation needs.
+dbt-core==1.12.0
+dbt-postgres==1.11.0

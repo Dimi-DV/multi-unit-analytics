@@ -23,9 +23,12 @@ load:
 	docker compose up -d --wait
 	$(PY) scripts/load.py
 
-# Applies staging then marts SQL in lexical order.
+DBT := $(shell test -x .venv/bin/dbt && echo .venv/bin/dbt || echo .venv/Scripts/dbt)
+
+# Builds staging views and marts tables and runs every test.
 build:
-	$(PY) scripts/build_sql.py
+	DBT_PROFILES_DIR=profiles $(DBT) deps
+	DBT_PROFILES_DIR=profiles $(DBT) build
 
 psql:
 	docker compose exec postgres psql -U mua -d mua

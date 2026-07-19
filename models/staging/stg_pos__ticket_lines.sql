@@ -1,11 +1,10 @@
--- staging.stg_pos__ticket_lines: 1:1 over raw.pos_ticket_lines.
+-- staging.stg_pos__ticket_lines: 1:1 over {{ source('pos', 'ticket_lines') }}.
 -- Typing is the first transformation: three business_date formats are parsed,
 -- the spring-2025 UTC export window is normalized back to local wall time, and
 -- export_seq marks re-fired duplicates (1 = latest export of a line; the mart
 -- keeps only export_seq = 1). No business logic here; the net-sales rule is
 -- applied once, in marts.fact_ticket_line.
 
-CREATE OR REPLACE VIEW staging.stg_pos__ticket_lines AS
 WITH typed AS (
     SELECT
         location_code,
@@ -30,7 +29,7 @@ WITH typed AS (
         discount_amount::numeric(9,2) AS discount_amount,
         line_state,
         order_mode
-    FROM raw.pos_ticket_lines
+    FROM {{ source('pos', 'ticket_lines') }}
 )
 SELECT
     typed.*,
@@ -38,4 +37,4 @@ SELECT
         PARTITION BY location_code, business_date, ticket_number, line_number
         ORDER BY closed_at DESC
     ) AS export_seq
-FROM typed;
+FROM typed

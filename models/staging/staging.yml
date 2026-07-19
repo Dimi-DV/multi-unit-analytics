@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_pos__ticket_lines
+    description: >
+      Typed 1:1 view: three business_date formats parsed, the UTC export
+      window normalized to local time, export_seq ranks re-fired duplicates.
+    columns:
+      - name: business_date
+        tests: [not_null]
+  - name: stg_pos__locations
+  - name: stg_pos__menu_items
+  - name: stg_ap__invoice_lines
+  - name: stg_ap__vendors
+  - name: stg_labor__daily
+  - name: stg_gl__daily_sales
+  - name: stg_plan__budget

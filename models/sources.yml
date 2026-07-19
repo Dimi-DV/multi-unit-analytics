@@ -1,0 +1,55 @@
+version: 2
+
+sources:
+  - name: pos
+    description: POS export feeds, dirty on purpose (see docs/DATASET.md)
+    schema: raw
+    tables:
+      - name: ticket_lines
+        identifier: pos_ticket_lines
+        description: One exported POS line; duplicates, drift, mixed date formats
+      - name: locations
+        identifier: pos_locations
+        description: 10 code-era rows for 9 physical locations (mid-2025 re-key)
+      - name: menu_items
+        identifier: pos_menu_items
+
+  - name: ap
+    description: Accounts payable (finance side, canonical location codes)
+    schema: raw
+    tables:
+      - name: invoice_lines
+        identifier: ap_invoice_lines
+      - name: vendors
+        identifier: ap_vendors
+
+  - name: labor
+    schema: raw
+    tables:
+      - name: daily
+        identifier: labor_daily
+
+  - name: gl
+    schema: raw
+    tables:
+      - name: daily_sales
+        identifier: gl_daily_sales
+
+  - name: plan
+    schema: raw
+    tables:
+      - name: budget
+        identifier: plan_budget
+
+  - name: ref
+    description: Analyst-maintained reference data
+    schema: raw
+    tables:
+      - name: calendar
+        identifier: ref_calendar
+      - name: dayparts
+        identifier: ref_dayparts
+      - name: item_aliases
+        identifier: ref_item_aliases
+      - name: location_bridge
+        identifier: ref_location_bridge
