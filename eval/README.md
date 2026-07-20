@@ -31,6 +31,19 @@ failure-mode analysis, or not at all.
   calibration sampler that exports a hand-scoring sheet. Judge output is never
   the headline metric.
 
+## Runners
+
+`--runner api` (default) calls the Anthropic Messages API and needs an
+`ANTHROPIC_API_KEY`. `--runner claude-cli` reaches the same pinned models
+through Claude Code's headless mode (`claude -p`) on a developer subscription
+instead. Integrity contract for the CLI runner: each question is answered by a
+fresh process launched in an empty temp directory with agentic turns capped at
+one, so the subject sees only the schema context and the question, never this
+repository or its answer key. The honest caveat, carried in every results
+file: the CLI wraps the model in the Claude Code system prompt, so the
+measured subject is "model inside Claude Code", not the bare API model, and
+any published number names which runner produced it.
+
 ## Database access
 
 Local runs execute through a read-only session. For interactive agent access,

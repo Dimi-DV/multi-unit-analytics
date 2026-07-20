@@ -13,7 +13,11 @@ import csv
 import json
 import os
 import pathlib
+import shutil
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from harness import ask_cli  # noqa: E402  (same context-free subprocess contract)
 
 MODEL_ID = "claude-opus-4-8"   # judge is pinned separately from the subject model
 HERE = pathlib.Path(__file__).parent
@@ -23,7 +27,7 @@ generated SQL, and the canonical SQL, classify the failure as exactly one of:
 semantic_near_miss (right idea, small logic slip), schema_linking (wrong
 table/column/join), ambiguity (the question admits the produced reading),
 hallucination (invented objects or syntax), other. Respond as JSON:
-{"category": "...", "explanation": "one sentence"}.
+{{"category": "...", "explanation": "one sentence"}}.
 
 Question: {question}
 Generated SQL:
@@ -40,6 +44,8 @@ def main() -> int:
                     help="write the blind hand-scoring sheet for calibration")
     ap.add_argument("--agreement", metavar="SHEET",
                     help="compute judge vs human agreement from a filled sheet")
+    ap.add_argument("--runner", choices=["api", "claude-cli"], default="api",
+                    help="api (needs ANTHROPIC_API_KEY) or claude-cli (subscription)")
     args = ap.parse_args()
 
     if args.agreement:
@@ -59,23 +65,33 @@ def main() -> int:
         print("no failures to judge")
         return 0
 
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("ANTHROPIC_API_KEY is not set; the judge measures or stays silent.")
+    client = None
+    if args.runner == "api":
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            print("ANTHROPIC_API_KEY is not set; the judge measures or stays silent.")
+            print("(or use --runner claude-cli to bill the Claude Code subscription)")
+            return 2
+        import anthropic
+        client = anthropic.Anthropic()
+    elif shutil.which("claude") is None:
+        print("--runner claude-cli needs the claude CLI on PATH.")
         return 2
-    import anthropic
     import yaml
 
     bank = {q["id"]: q for q in yaml.safe_load((HERE / "bank.yaml").read_text(encoding="utf-8"))}
-    client = anthropic.Anthropic()
     judged = []
     for r in failures:
         prompt = JUDGE_PROMPT.format(question=r["question"],
                                      generated=r["generated_sql"],
                                      canonical=bank[r["id"]]["canonical_sql"])
-        msg = client.messages.create(model=MODEL_ID, max_tokens=300,
-                                     messages=[{"role": "user", "content": prompt}])
+        if args.runner == "api":
+            msg = client.messages.create(model=MODEL_ID, max_tokens=300,
+                                         messages=[{"role": "user", "content": prompt}])
+            raw = msg.content[0].text
+        else:
+            raw = ask_cli(prompt, MODEL_ID)
         try:
-            verdict = json.loads(msg.content[0].text.strip().strip("`"))
+            verdict = json.loads(raw.strip().strip("`"))
         except json.JSONDecodeError:
             verdict = {"category": "unparseable_judge_output", "explanation": ""}
         judged.append({**r, "judge_category": verdict.get("category", ""),

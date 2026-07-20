@@ -7,10 +7,21 @@ anything that is not a single SELECT/WITH before it reaches the database
 (defense in depth on top of the read-only transaction; interactive agent
 access goes through postgres-mcp restricted mode, see README.md).
 
-Requires ANTHROPIC_API_KEY. Without it this exits with instructions instead of
-inventing a number. Results land in eval/results/ (gitignored); publishing a
-number in the repo README is a deliberate, separate act that must include the
-failure-mode analysis.
+Two ways to reach the subject model (--runner):
+  api        Anthropic Messages API; requires ANTHROPIC_API_KEY.
+  claude-cli Claude Code CLI headless mode (`claude -p`), billed to the
+             developer's subscription. Integrity contract: every question is
+             answered by a fresh process started in an empty temp directory
+             with agentic turns capped at one, so the subject sees only the
+             schema context and the question, never this repo or its answer
+             key. Caveat recorded with the result: the CLI wraps the model in
+             the Claude Code system prompt, so the measured subject is "model
+             inside Claude Code", not the bare API model.
+
+Without a usable runner this exits with instructions instead of inventing a
+number. Results land in eval/results/ (gitignored); publishing a number in the
+repo README is a deliberate, separate act that must include the failure-mode
+analysis.
 """
 
 import argparse
@@ -18,7 +29,10 @@ import json
 import os
 import pathlib
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 
 import psycopg
 import yaml
@@ -39,6 +53,21 @@ def conninfo():
         "dbname": os.environ.get("PGDATABASE", "mua"),
         "options": "-c default_transaction_read_only=on -c statement_timeout=20000",
     }
+
+
+def ask_cli(prompt: str, model: str) -> str:
+    """One fresh, context-free `claude -p` process per question (see module doc)."""
+    exe = shutil.which("claude")
+    if exe is None:
+        raise RuntimeError("claude CLI not found on PATH")
+    workdir = tempfile.mkdtemp(prefix="mua-eval-")
+    proc = subprocess.run(
+        [exe, "-p", "--model", model, "--output-format", "text", "--max-turns", "1"],
+        input=prompt, capture_output=True, text=True, encoding="utf-8",
+        cwd=workdir, timeout=300)
+    if proc.returncode != 0:
+        raise RuntimeError(f"claude CLI exit {proc.returncode}: {proc.stderr.strip()[:300]}")
+    return proc.stdout
 
 
 def extract_sql(text: str) -> str:
@@ -62,14 +91,22 @@ def main() -> int:
     ap.add_argument("--schema", choices=["marts", "raw"], default="marts",
                     help="which schema context the model gets (the comparison is the point)")
     ap.add_argument("--limit", type=int, default=0, help="run only the first N questions")
+    ap.add_argument("--runner", choices=["api", "claude-cli"], default="api",
+                    help="api (needs ANTHROPIC_API_KEY) or claude-cli (subscription)")
     args = ap.parse_args()
 
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("ANTHROPIC_API_KEY is not set. This harness measures a real model or")
-        print("nothing at all; it never fabricates results. Set the key and re-run.")
+    client = None
+    if args.runner == "api":
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            print("ANTHROPIC_API_KEY is not set. This harness measures a real model or")
+            print("nothing at all; it never fabricates results. Set the key and re-run,")
+            print("or use --runner claude-cli to bill the Claude Code subscription.")
+            return 2
+        import anthropic  # imported late so the no-key path needs no SDK
+        client = anthropic.Anthropic()
+    elif shutil.which("claude") is None:
+        print("--runner claude-cli needs the claude CLI on PATH.")
         return 2
-
-    import anthropic  # imported late so the no-key path needs no SDK
 
     ctx_file = "schema_context.md" if args.schema == "marts" else "schema_context_raw.md"
     schema_ctx = (HERE / ctx_file).read_text(encoding="utf-8")
@@ -77,16 +114,19 @@ def main() -> int:
     if args.limit:
         bank = bank[: args.limit]
 
-    client = anthropic.Anthropic()
     results = []
     with psycopg.connect(**conninfo()) as conn:
         for q in bank:
             prompt = (f"{schema_ctx}\n\nWrite one PostgreSQL query answering this "
                       f"question. Return only the SQL, nothing else.\n\n"
                       f"Question: {q['question']}")
-            msg = client.messages.create(model=MODEL_ID, max_tokens=1500,
-                                         messages=[{"role": "user", "content": prompt}])
-            sql = extract_sql(msg.content[0].text)
+            if args.runner == "api":
+                msg = client.messages.create(model=MODEL_ID, max_tokens=1500,
+                                             messages=[{"role": "user", "content": prompt}])
+                raw = msg.content[0].text
+            else:
+                raw = ask_cli(prompt, MODEL_ID)
+            sql = extract_sql(raw)
             rec = {"id": q["id"], "difficulty": q["difficulty"],
                    "question": q["question"], "generated_sql": sql}
 
@@ -115,6 +155,10 @@ def main() -> int:
     out_dir.mkdir(exist_ok=True)
     passed = sum(r["passed"] for r in results)
     summary = {"model": MODEL_ID, "schema_condition": args.schema,
+               "runner": args.runner,
+               "runner_note": (None if args.runner == "api" else
+                               "claude-cli headless: subject ran inside the Claude Code "
+                               "system prompt, fresh context-free process per question"),
                "passed": passed, "total": len(results),
                "accuracy": round(passed / len(results), 4), "results": results}
     out = out_dir / f"results_{args.schema}.json"
