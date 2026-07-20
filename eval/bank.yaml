@@ -6,14 +6,20 @@
 
 - id: q01
   difficulty: easy
-  question: How many locations does the group operate?
+  question: >-
+    How many of the group's open locations are in the borough of Manhattan?
+    Return exactly one row with a single column: the number of locations as
+    an integer. No other columns.
   match: unordered
   canonical_sql: |
-    select count(*) from marts.dim_location
+    select count(*) from marts.dim_location where borough = 'Manhattan'
 
 - id: q02
   difficulty: easy
-  question: List the location names and neighborhoods of our Brooklyn restaurants.
+  question: >-
+    List the location names and neighborhoods of our Brooklyn restaurants.
+    Return exactly two columns in this order: location_name and neighborhood,
+    one row per Brooklyn location. No other columns.
   match: unordered
   canonical_sql: |
     select location_name, neighborhood
@@ -22,7 +28,10 @@
 
 - id: q03
   difficulty: easy
-  question: What is the menu price of the Copperwick Smash Burger?
+  question: >-
+    What is the menu price of the Copperwick Smash Burger? Return exactly one
+    row with a single column: the standard menu price in dollars as a number
+    with 2 decimal places. Do not include the item name or any other columns.
   match: unordered
   canonical_sql: |
     select standard_price from marts.dim_menu_item
@@ -30,14 +39,19 @@
 
 - id: q04
   difficulty: easy
-  question: How many menu items are in the Mains category?
+  question: >-
+    How many menu items are in the Mains category? Return exactly one row with
+    a single column: the number of items as an integer. No other columns.
   match: unordered
   canonical_sql: |
     select count(*) from marts.dim_menu_item where category = 'Mains'
 
 - id: q05
   difficulty: easy
-  question: What were total group net sales in calendar 2025, in dollars?
+  question: >-
+    What were total group net sales in calendar 2025 (business dates
+    2025-01-01 through 2025-12-31), in dollars, computed from the POS ticket
+    data rather than the GL feed? Return a single number. Do not round.
   match: unordered
   canonical_sql: |
     select sum(net_amount)
@@ -46,24 +60,33 @@
 
 - id: q06
   difficulty: easy
-  question: Which vendor supplies our coffee and tea?
+  question: >-
+    Which vendor supplies our coffee and tea? Return a single column,
+    vendor_name, one row per matching vendor, and no other columns.
   match: unordered
   canonical_sql: |
     select vendor_name from marts.dim_vendor where vendor_category = 'coffee_tea'
 
 - id: q07
   difficulty: easy
-  question: Which menu items have no theoretical cost on their cost card?
+  question: >-
+    Which menu items have no theoretical cost on their cost card? Return a
+    single column, item_name, one row per item, and no other columns.
   match: unordered
   canonical_sql: |
     select item_name from marts.dim_menu_item where theoretical_unit_cost is null
 
 - id: q08
   difficulty: medium
-  question: Show 2025 net sales by borough, highest first.
+  question: >-
+    Using the POS ticket lines as the source of truth (not the GL daily sales
+    feed), show 2025 net sales by borough, highest first. 2025 means business
+    dates 2025-01-01 through 2025-12-31. Net sales excludes voided and comped
+    lines and counts refunds as negative. Return two columns, borough and net
+    sales in dollars rounded to 2 decimals, one row per borough.
   match: ordered
   canonical_sql: |
-    select l.borough, sum(f.net_amount) as net_sales
+    select l.borough, round(sum(f.net_amount), 2) as net_sales
     from marts.fact_ticket_line f
     join marts.dim_location l using (location_id)
     where f.business_date between date '2025-01-01' and date '2025-12-31'
@@ -72,7 +95,15 @@
 
 - id: q09
   difficulty: medium
-  question: What was the average check (net sales per ticket) by location in 2025?
+  question: >-
+    What was the average check (net sales per ticket) by location in 2025?
+    Use business dates 2025-01-01 through 2025-12-31. Count every distinct
+    ticket that appears in the POS lines for the window, including tickets
+    whose only lines are voids, comps, or refunds. Report the store whose
+    location code changed during 2025 as a single row under its current
+    post-re-key code. Return exactly two columns: location_code and the
+    average check in dollars rounded to 2 decimals, one row per location,
+    nothing else.
   match: unordered
   canonical_sql: |
     select l.location_code,
@@ -84,7 +115,13 @@
 
 - id: q10
   difficulty: medium
-  question: What were the five best-selling menu items by units across the group in 2024?
+  question: >-
+    What were the five best-selling menu items by units across the group in
+    2024 (business dates 2024-01-01 through 2024-12-31)? Count units as the
+    total qty on POS ticket lines whose line_state is 'sale' (do not net
+    refunds). Return exactly two columns in this order: item_name and total
+    units, ordered by units descending, limited to 5 rows. No other columns.
+    Do not round.
   match: ordered
   canonical_sql: |
     select m.item_name, sum(f.qty) as units
@@ -98,7 +135,11 @@
 
 - id: q11
   difficulty: medium
-  question: Show monthly net sales for Copperwick West Village across 2025, in month order.
+  question: >-
+    Show monthly net sales for Copperwick West Village (location_code 'CW-WV')
+    across 2025. Return exactly two columns: the month as a first-of-month
+    date (e.g. 2025-01-01) and total net sales in dollars, nothing else,
+    ordered by month ascending. Do not round.
   match: ordered
   canonical_sql: |
     select date_trunc('month', f.business_date)::date as month, sum(f.net_amount)
@@ -111,7 +152,16 @@
 
 - id: q12
   difficulty: medium
-  question: What share of each location's 2025 tickets were delivery orders?
+  question: >-
+    What share of each location's 2025 tickets were delivery orders? Count a
+    ticket as delivery if any of its lines has order_mode = 'DL'. Treat a
+    store whose location_code changed during 2025 as a single location and
+    report it under its most recent location_code. Count every 2025 ticket
+    and every line regardless of line_state (voided and comped lines still
+    count toward identifying delivery tickets and toward the ticket count).
+    Return exactly two columns: location_code and the delivery share as a
+    percentage of all 2025 tickets rounded to 1 decimal, one row per
+    location, nothing else.
   match: unordered
   canonical_sql: |
     with t as (
@@ -128,10 +178,17 @@
 
 - id: q13
   difficulty: medium
-  question: How much comp (free food) value did each location give away in 2025?
+  question: >-
+    How much comp (free food) value did each location give away in calendar
+    2025? Comp value is the gross amount (qty times unit price) of ticket
+    lines whose line_state is 'comp'. Attribute lines to calendar 2025 by
+    business_date. Report each location under its current location_code; the
+    store re-keyed mid-2025 is one location under its post-re-key code.
+    Return exactly two columns, nothing else: location_code and the total
+    comp value in dollars rounded to 2 decimals, one row per location.
   match: unordered
   canonical_sql: |
-    select l.location_code, sum(f.gross_amount)
+    select l.location_code, round(sum(f.gross_amount), 2)
     from marts.fact_ticket_line f
     join marts.dim_location l using (location_id)
     where f.line_state = 'comp'
@@ -140,7 +197,14 @@
 
 - id: q14
   difficulty: medium
-  question: Which five location-months overspent their labor budget by the most dollars during 2025?
+  question: >-
+    Which five location-months overspent their labor budget by the most
+    dollars during 2025? Return exactly three columns and nothing else:
+    location_code, the month start date, and the overspend in dollars (actual
+    labor wages minus labor budget) rounded to 2 decimals, ordered by
+    overspend descending, limited to 5 rows. Consider only location-months
+    that have a budget row; a newly opened location's first partial month has
+    no budget and is out of scope.
   match: ordered
   canonical_sql: |
     with labor as (
@@ -160,7 +224,15 @@
 
 - id: q15
   difficulty: medium
-  question: For each location, what share of 2025 net sales came on weekends?
+  question: >-
+    For each location, what share of 2025 net sales came on weekends?
+    Attribute each ticket line to its business_date (the service date), not
+    the closed_at timestamp. Return one row per location (9 rows); treat the
+    re-keyed store as a single location across the full year and report its
+    current post-re-key location_code. Return exactly two columns:
+    location_code and the weekend share expressed as a percentage of that
+    location's total 2025 net sales, rounded to 1 decimal place. No other
+    columns.
   match: unordered
   canonical_sql: |
     select l.location_code,
@@ -174,7 +246,17 @@
 
 - id: q16
   difficulty: hard
-  question: What were the top 3 dishes by units at every location in the fourth quarter of 2025?
+  question: >-
+    What were the top 3 menu items by units at every location in the fourth
+    quarter of 2025 (business dates 2025-10-01 through 2025-12-31)? Consider
+    every menu item in all categories, including beverages and bar items.
+    Count units as the total qty on POS ticket lines recorded as sales;
+    exclude voids, comps, and refunds (do not net refunds against sales).
+    Rank items within each location by units descending,
+    breaking ties alphabetically by item_name, and keep exactly the top 3 per
+    location. Return exactly three columns in this order and nothing else:
+    location_code, item_name, and units. Three rows per location. Do not
+    round.
   match: unordered
   canonical_sql: |
     with ranked as (
@@ -192,7 +274,14 @@
 
 - id: q17
   difficulty: hard
-  question: Show year-over-year net sales growth by location, 2025 versus 2024, as a percentage.
+  question: >-
+    Show year-over-year net sales growth by location, 2025 versus 2024,
+    computed from POS ticket lines (do not use the GL feed). Return exactly
+    two columns: location_code (use the current post-re-key code, e.g. CW-GCX
+    for the re-keyed store) and the growth percentage computed as
+    100 * (2025 net sales / 2024 net sales - 1), rounded to 1 decimal place,
+    NULL where 2024 net sales are zero or absent. One row per location, no
+    other columns.
   match: unordered
   canonical_sql: |
     select l.location_code,
@@ -208,7 +297,14 @@
 
 - id: q18
   difficulty: hard
-  question: On how many days in 2025 did each location's GL net sales differ from POS net sales?
+  question: >-
+    On how many days in 2025 did each location's GL net sales differ from POS
+    net sales (POS net sales = each location's daily net sales computed from
+    the POS ticket lines, not the GL feed)? Use the current post-re-key
+    location_code for the re-keyed store, aggregating both code eras into
+    that one row. Return exactly two columns, location_code and the number of
+    differing days as an integer, with one row for every location including
+    locations with zero differing days.
   match: unordered
   canonical_sql: |
     with pos as (
@@ -225,7 +321,15 @@
 
 - id: q19
   difficulty: hard
-  question: Rank locations by prime cost percentage for the twelve months ending June 2026.
+  question: >-
+    Rank locations by prime cost percentage for the twelve months ending June
+    2026 (business/invoice dates 2025-07-01 through 2026-06-30), where prime
+    cost percentage = 100 * (invoice purchase cost + labor wages) / POS net
+    sales computed from ticket lines (do not use the GL sales feed). Report
+    each location under its current location_code; if a location changed
+    codes during the period covered by the data, use the latest code. Return
+    exactly two columns: location_code and the percentage rounded to
+    2 decimals, ordered from highest to lowest percentage, no other columns.
   match: ordered
   canonical_sql: |
     with net as (
@@ -256,7 +360,14 @@
 
 - id: q20
   difficulty: hard
-  question: What share of tickets included a non-alcoholic beverage at each location in the first half of 2026?
+  question: >-
+    For each location, what percentage of tickets included a non-alcoholic
+    beverage in the first half of 2026 (business dates 2026-01-01 through
+    2026-06-30)? Count only tickets that have at least one line with
+    line_state = 'sale', and count a ticket as including a non-alcoholic
+    beverage only when an 'NA Beverages' item appears on one of its sale
+    lines. Return exactly two columns: location_code and the percentage
+    (0 to 100) rounded to 1 decimal, nothing else.
   match: unordered
   canonical_sql: |
     with t as (
@@ -276,7 +387,15 @@
 
 - id: q21
   difficulty: hard
-  question: Compare the Grand Central store's dinner share of net sales before and after its July 2025 format conversion.
+  question: >-
+    Compare the Grand Central store's dinner share of net sales before and
+    after its July 2025 format conversion (before = business dates prior to
+    2025-07-01, after = 2025-07-01 onward; include both the CW-GC and CW-GCX
+    eras). Return exactly two rows with two columns and nothing else: an era
+    label that is the literal text 'before' or 'after', and dinner's
+    percentage share of that era's net sales rounded to 1 decimal place. Use
+    the dinner daypart as defined in the dayparts reference, inclusive of the
+    full labeled end minute.
   match: unordered
   canonical_sql: |
     select case when f.business_date < date '2025-07-01' then 'before' else 'after' end as era,
@@ -289,7 +408,12 @@
 
 - id: q22
   difficulty: hard
-  question: How did the average selling price of the Kale Caesar change from May 2025 to July 2025?
+  question: >-
+    How did the average listed selling price of the Kale Caesar change from
+    May 2025 to July 2025? Define it as the average of the line-level
+    unit_price across sale lines only, before any discounts. Return exactly
+    two rows, one per month, with two columns and nothing else: the month as
+    'YYYY-MM' text and the average unit_price rounded to 2 decimals.
   match: unordered
   canonical_sql: |
     select to_char(date_trunc('month', f.business_date), 'YYYY-MM') as month,
@@ -303,7 +427,12 @@
 
 - id: q23
   difficulty: hard
-  question: What percentage of our total 2025 purchase spend went to each vendor?
+  question: >-
+    What percentage of our total 2025 purchase spend (invoices dated
+    2025-01-01 through 2025-12-31) went to each vendor? Return exactly two
+    columns: vendor_name and the vendor's share of total 2025 ext_cost as a
+    percentage rounded to 1 decimal place. Do not include dollar amounts or
+    any other columns.
   match: unordered
   canonical_sql: |
     select v.vendor_name,
@@ -315,7 +444,14 @@
 
 - id: q24
   difficulty: hard
-  question: By what percentage did the average unit cost of Ground Beef 80/20 rise from February 2025 to March 2025?
+  question: >-
+    By what percentage did the average unit cost of Ground Beef 80/20 rise
+    from February 2025 to March 2025? Compute each month's average unit cost
+    as the simple average of invoice-line unit costs using the filled unit
+    cost (in marts this is the unit_cost_filled column). Assign each invoice
+    line to a month by invoice_date. Return a single row with exactly one
+    column: the percentage increase rounded to 1 decimal place. Do not
+    include the monthly averages or any other columns.
   match: unordered
   canonical_sql: |
     with m as (

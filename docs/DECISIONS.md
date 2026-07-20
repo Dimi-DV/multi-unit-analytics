@@ -32,3 +32,26 @@ guardrails, and wrote the SQL layers to the specs and decisions recorded below.
   headline version: this repo must run at clone time months from now.
 - Eval numbers ship with failure modes or not at all: the harness makes one attempt per question,
   no retry loop, and the judge is quoted only next to its measured human-agreement rate.
+- Eval bank v2 after a measured pilot: the first full run scored 7/24 (marts) and 5/24 (raw), and
+  a 36-failure audit that executed every generated and canonical query found 27 failures were
+  semantically correct answers rejected only because the questions never pinned an output contract
+  (which identifier, which columns, what rounding, POS or GL as the source of truth). Rejected
+  publishing the pilot numbers as the headline (they measure the questions, not the model) and
+  rejected loosening the scorer (fuzzy column matching would hide real errors). Instead the
+  question wordings now state their output contract exactly, every answer key stays untouched
+  (the audit confirmed all 24 correct), and the re-run against bank v2 is the official number,
+  published together with the pilot story. Two data-dictionary facts (order_mode codes, the
+  daypart end-minute convention) moved into the raw schema context; the discoverable messiness
+  (alias duplicates, re-fired lines, text typing) stays undocumented on purpose, because finding
+  it is what the raw condition measures.
+- Blind review before the official run, then freeze: because bank v2 was drafted from a pilot's
+  failures, it risks fitting the instrument to one model. Mitigation: an independent review of
+  all 24 revised questions against only the question text, the answer key, and the schema docs
+  (reviewers were barred from the pilot results) closed the remaining contract gaps it found
+  (mostly the business_date vs closed_at window and which code labels the re-keyed store), and
+  retargeted one question whose literal answer was printed in the schema docs. Two answer keys
+  gained a round() their question already promised, proven execution-identical before adoption.
+  After this single revision round the bank is frozen: no further wording changes on the strength
+  of any model's results. The headline result is the marts-vs-raw gap within one model on
+  identically contracted questions; the absolute score is reported as this model on this bank,
+  not as a general capability claim.

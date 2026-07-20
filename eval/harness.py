@@ -33,6 +33,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 
 import psycopg
 import yaml
@@ -55,19 +56,31 @@ def conninfo():
     }
 
 
-def ask_cli(prompt: str, model: str) -> str:
-    """One fresh, context-free `claude -p` process per question (see module doc)."""
+def ask_cli(prompt: str, model: str, tries: int = 3) -> str:
+    """One fresh, context-free `claude -p` process per question (see module doc).
+
+    Retries here are TRANSPORT retries only: a nonzero exit or empty output
+    means no model answer existed, so retrying is infrastructure resilience,
+    not a second answer attempt. The one-attempt rule applies to answers; a
+    question whose transport fails all tries aborts the run rather than
+    counting for or against the model.
+    """
     exe = shutil.which("claude")
     if exe is None:
         raise RuntimeError("claude CLI not found on PATH")
-    workdir = tempfile.mkdtemp(prefix="mua-eval-")
-    proc = subprocess.run(
-        [exe, "-p", "--model", model, "--output-format", "text", "--max-turns", "1"],
-        input=prompt, capture_output=True, text=True, encoding="utf-8",
-        cwd=workdir, timeout=300)
-    if proc.returncode != 0:
-        raise RuntimeError(f"claude CLI exit {proc.returncode}: {proc.stderr.strip()[:300]}")
-    return proc.stdout
+    last = ""
+    for attempt in range(tries):
+        workdir = tempfile.mkdtemp(prefix="mua-eval-")
+        proc = subprocess.run(
+            [exe, "-p", "--model", model, "--output-format", "text", "--max-turns", "1"],
+            input=prompt, capture_output=True, text=True, encoding="utf-8",
+            cwd=workdir, timeout=300)
+        if proc.returncode == 0 and proc.stdout.strip():
+            return proc.stdout
+        last = (f"exit {proc.returncode}; stderr: {proc.stderr.strip()[:200]!r}; "
+                f"stdout: {proc.stdout.strip()[:200]!r}")
+        time.sleep(5 * (attempt + 1))
+    raise RuntimeError(f"claude CLI transport failure after {tries} tries: {last}")
 
 
 def extract_sql(text: str) -> str:

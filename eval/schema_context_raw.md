@@ -11,13 +11,15 @@ closed_at; dish names drift (misspellings, truncations, casings) and
 was re-keyed from CW-GC to CW-GCX on 2025-07-01 and `ref_location_bridge` maps
 10 codes to 9 location_ids; finance feeds (gl_daily_sales, labor_daily,
 ap_invoice_lines, plan_budget) use canonical codes throughout; voids/comps
-carry line_state and do not count toward net sales, refunds count negative.
+carry line_state and do not count toward net sales, refunds count negative,
+and net sales is net of line-level discounts.
 
 Tables and columns:
 
 - `raw.pos_ticket_lines(location_code, business_date, ticket_number,
   line_number, closed_at, item_name, qty, unit_price, discount_amount,
-  line_state, order_mode)`
+  line_state, order_mode)` - order_mode codes: DI (dine-in), TO (takeout),
+  DL (delivery)
 - `raw.pos_locations(location_code, location_name, neighborhood, borough,
   service_format, volume_tier, seats, open_date, closed_date)` - 10 rows
 - `raw.pos_menu_items(menu_item_id, item_name, category, standard_price,
@@ -34,7 +36,9 @@ Tables and columns:
 - `raw.ref_calendar(date_day, year, quarter, month, month_name, day_of_week,
   day_name, is_weekend, is_holiday, holiday_name, holiday_type,
   is_school_break, is_dining_week, is_marathon_sunday)`
-- `raw.ref_dayparts(daypart, start_time, end_time)`
+- `raw.ref_dayparts(daypart, start_time, end_time)` - daypart windows tile
+  the day at minute granularity; each window includes the full labeled end
+  minute, so dinner ending '21:59' includes 21:59:00 through 21:59:59
 - `raw.ref_item_aliases(alias, menu_item_id)`
 - `raw.ref_location_bridge(location_code, location_id)`
 
