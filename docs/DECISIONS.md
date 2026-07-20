@@ -1,7 +1,6 @@
 # Decisions made (and what was rejected)
 
-Built with Claude Code as a force multiplier: it scaffolded the generator, infra, and this repo's
-guardrails, and wrote the SQL layers to the specs and decisions recorded below.
+Built with Claude Code as a force multiplier: it scaffolded the generator and infra.
 
 <!-- The entries below were drafted during Phase 0 scaffolding and are pending my edit; each one
      records a real design decision with the alternative that was rejected. -->
