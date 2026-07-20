@@ -1,5 +1,8 @@
 # multi-unit-analytics
 
+[![dataset determinism](https://github.com/Dimi-DV/multi-unit-analytics/actions/workflows/dataset-determinism.yml/badge.svg)](https://github.com/Dimi-DV/multi-unit-analytics/actions/workflows/dataset-determinism.yml)
+[![dbt build](https://github.com/Dimi-DV/multi-unit-analytics/actions/workflows/dbt-build.yml/badge.svg)](https://github.com/Dimi-DV/multi-unit-analytics/actions/workflows/dbt-build.yml)
+
 **Same-store sales, margin variance, and menu-mix analytics on a deliberately messy 9-location POS dataset, in PostgreSQL.**
 
 > The analytical patterns here (same-store growth, margin variance vs. target, product-mix engineering,
