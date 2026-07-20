@@ -13,9 +13,9 @@
 > public sources. See [Data & methodology](#data--methodology).
 
 Status: dataset, dbt-managed staging/marts layers with 67 passing checks, the twelve analysis
-queries, and the text-to-SQL evaluation harness are built and run against the loaded database.
-The decision memo, query EXPLAIN notes, and the measured eval accuracy number are in progress;
-nothing is claimed here before it exists in this repo.
+queries, the [decision memo](docs/decision-memo.md), [query plan notes](docs/explain-notes.md),
+and the text-to-SQL evaluation harness are built and run against the loaded database. The
+measured eval accuracy number is in progress; nothing is claimed here before it exists in this repo.
 
 ## The business question
 
@@ -24,7 +24,8 @@ twelve months, roughly $127K a year of excess cost (analysis/12). The measured d
 weekend labor template rolled out group-wide in early 2025 was never rescaled to that store's weak
 weekend demand (weekend labor hit 52.9% of weekend sales against a 32.9% baseline), plus a beef
 price pass-through the group declined to take on its two beef flagships. Recommended: rebuild the
-weekend schedule template and reprice the two held items. Same dataset, same queries also show why
+weekend schedule template and reprice the two held items (the full memo:
+[docs/decision-memo.md](docs/decision-memo.md)). Same dataset, same queries also show why
 naive growth reads lie: naive H1-2026 growth is +10.2% while true comp growth is +4.8%
 (analysis/04), the gap being one opening ramp and one format conversion.
 
@@ -40,7 +41,7 @@ naive growth reads lie: naive H1-2026 growth is +10.2% while true comp growth is
 | `analysis/` | Twelve numbered business-question queries covering filter+HAVING, conditional joins, top-N per group, LAG/LEAD, gap-and-islands, dedup-keep-latest, and a recursive hierarchy rollup; every headline number above is transcribed from their output |
 | `eval/` | Text-to-SQL evaluation harness: 24-question ground-truth bank (answer key validated in CI), execution-match scoring, calibrated-judge protocol. Built and runnable; **no accuracy number is claimed until one is measured** |
 | `scripts/` | Loader (psycopg COPY), setup wrappers for PowerShell and make, determinism and content guards |
-| `docs/` | [Dataset design and provenance](docs/DATASET.md); the decision memo lands with Phase 1 |
+| `docs/` | [Dataset design and provenance](docs/DATASET.md), [design decisions](docs/DECISIONS.md), the [decision memo](docs/decision-memo.md), and measured [query plan notes](docs/explain-notes.md) |
 
 Not jaffle_shop: dbt's canonical tutorial is also a fictional restaurant, so the difference is the
 point. This dataset carries multi-location prime cost against budget, a POS-to-GL tie-out, dish-name
