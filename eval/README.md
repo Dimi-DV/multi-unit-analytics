@@ -9,11 +9,13 @@ rate is reported next to anything the judge says.
 
 ## Status
 
-The harness, question bank, and scorers are complete and runnable. **No
-accuracy number is claimed anywhere in this repo yet** because none has been
-measured (the run requires an `ANTHROPIC_API_KEY`, and the judge calibration
-requires hand-scoring). The number gets published here together with its
-failure-mode analysis, or not at all.
+Measured. The official numbers and their failure-mode analysis are in
+[RESULTS.md](RESULTS.md): 23/24 execution match on the marts condition,
+18/24 on raw, same pinned model, bank v2 (frozen). The instrument history
+(a pilot run, the 36-failure audit that exposed output-contract
+underspecification, the single blind-reviewed revision) is disclosed there
+and in docs/DECISIONS.md. The judge's human-agreement rate is not yet
+measured (hand-scoring pending), so no judge output is quoted anywhere.
 
 ## Design
 

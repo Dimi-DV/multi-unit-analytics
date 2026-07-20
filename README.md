@@ -14,8 +14,10 @@
 
 Status: dataset, dbt-managed staging/marts layers with 67 passing checks, the twelve analysis
 queries, the [decision memo](docs/decision-memo.md), [query plan notes](docs/explain-notes.md),
-and the text-to-SQL evaluation harness are built and run against the loaded database. The
-measured eval accuracy number is in progress; nothing is claimed here before it exists in this repo.
+and the text-to-SQL evaluation are built, run, and measured against the loaded database. The
+eval result: the same pinned model scores [23/24 on the modeled marts layer vs 18/24 on the raw
+all-TEXT layer](eval/RESULTS.md) on identically contracted questions, which is this repo's thesis
+as a measured number; the failure-mode analysis ships alongside it.
 
 ## The business question
 
@@ -39,7 +41,7 @@ naive growth reads lie: naive H1-2026 growth is +10.2% while true comp growth is
 | `models/` | dbt project (dbt-core 1.12, Postgres adapter): typed staging views (three date formats, UTC window, dedup ranking) and marts where the cleaning contract is applied exactly once; grain enforced by post-hook primary keys, so the fact build itself is the dedup regression test |
 | `tests/` + model YAML | 67 checks: uniqueness, referential relationships, accepted values, a net-sales-rule expression test, and singular tests for tie-out bounds, prime-cost plausibility, and alias-map totality |
 | `analysis/` | Twelve numbered business-question queries covering filter+HAVING, conditional joins, top-N per group, LAG/LEAD, gap-and-islands, dedup-keep-latest, and a recursive hierarchy rollup; every headline number above is transcribed from their output |
-| `eval/` | Text-to-SQL evaluation harness: 24-question ground-truth bank (answer key validated in CI), execution-match scoring, calibrated-judge protocol. Built and runnable; **no accuracy number is claimed until one is measured** |
+| `eval/` | Text-to-SQL evaluation: 24-question ground-truth bank (answer key validated in CI), execution-match scoring, calibrated-judge protocol. Measured: [23/24 marts vs 18/24 raw](eval/RESULTS.md), published with its failure-mode analysis and the full instrument history |
 | `scripts/` | Loader (psycopg COPY), setup wrappers for PowerShell and make, determinism and content guards |
 | `docs/` | [Dataset design and provenance](docs/DATASET.md), [design decisions](docs/DECISIONS.md), the [decision memo](docs/decision-memo.md), and measured [query plan notes](docs/explain-notes.md) |
 

@@ -13,6 +13,7 @@ import csv
 import json
 import os
 import pathlib
+import re
 import shutil
 import sys
 
@@ -84,15 +85,25 @@ def main() -> int:
         prompt = JUDGE_PROMPT.format(question=r["question"],
                                      generated=r["generated_sql"],
                                      canonical=bank[r["id"]]["canonical_sql"])
-        if args.runner == "api":
-            msg = client.messages.create(model=MODEL_ID, max_tokens=300,
-                                         messages=[{"role": "user", "content": prompt}])
-            raw = msg.content[0].text
-        else:
-            raw = ask_cli(prompt, MODEL_ID)
-        try:
-            verdict = json.loads(raw.strip().strip("`"))
-        except json.JSONDecodeError:
+        # Format retries only: a response that yields no parseable verdict is
+        # re-asked (max 3 tries). The subject's one-attempt rule is untouched;
+        # this is the instrument being read, not the model being measured.
+        verdict = {}
+        for _ in range(3):
+            if args.runner == "api":
+                msg = client.messages.create(model=MODEL_ID, max_tokens=300,
+                                             messages=[{"role": "user", "content": prompt}])
+                raw = msg.content[0].text
+            else:
+                raw = ask_cli(prompt, MODEL_ID)
+            m = re.search(r"\{.*\}", raw, re.S)
+            try:
+                verdict = json.loads(m.group(0)) if m else {}
+            except json.JSONDecodeError:
+                verdict = {}
+            if verdict.get("category"):
+                break
+        if not verdict.get("category"):
             verdict = {"category": "unparseable_judge_output", "explanation": ""}
         judged.append({**r, "judge_category": verdict.get("category", ""),
                        "judge_explanation": verdict.get("explanation", "")})
